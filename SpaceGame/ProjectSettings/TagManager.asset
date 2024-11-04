@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spaceship
+  - Planet1
+  - MainPlanet
+  - Lava
+  - Spike
+  - ground
   layers:
   - Default
   - TransparentFX

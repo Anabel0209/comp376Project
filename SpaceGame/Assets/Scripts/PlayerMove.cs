@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -40,10 +41,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
 
-        //set the rotation to 0 so the character stays upright
-        rb.rotation = 0.0f;
-
-
     }
 
     void FlipSprite()
@@ -59,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isGrounded = true;
-        animator.SetBool("isJumping", !isGrounded);
+            isGrounded = true;
+            animator.SetBool("isJumping", !isGrounded);
     }
 }

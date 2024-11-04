@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2030184171848204109}
   - component: {fileID: 6050442439304511937}
   - component: {fileID: 8154224767156249286}
-  - component: {fileID: 5564783140514394343}
   m_Layer: 0
   m_Name: spaceship
   m_TagString: Spaceship
@@ -131,15 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.45, y: 1.52}
   m_EdgeRadius: 0
---- !u!114 &5564783140514394343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371063032889041683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9846914ece56142946a9f1a6db7672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
