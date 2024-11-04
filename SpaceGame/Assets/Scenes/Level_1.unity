@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 292314449}
   - component: {fileID: 292314448}
   - component: {fileID: 292314447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundMainPlanet
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -3957,6 +3957,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &348987084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348987085}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348987085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348987084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.048, y: -0.531, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2048540673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351103636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
@@ -4273,7 +4304,7 @@ GameObject:
   - component: {fileID: 442553918}
   - component: {fileID: 442553917}
   - component: {fileID: 442553916}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Danger
   m_TagString: Lava
   m_Icon: {fileID: 0}
@@ -4987,6 +5018,10 @@ PrefabInstance:
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_Name
       value: movingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7803447724618053772, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_Color.b
@@ -6796,6 +6831,37 @@ Transform:
   - {fileID: 1749524272}
   m_Father: {fileID: 1762860579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1037827168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037827169}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037827169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037827168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.255, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2048540673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051927147
 GameObject:
   m_ObjectHideFlags: 0
@@ -7235,6 +7301,10 @@ PrefabInstance:
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_Name
       value: movingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_TagString
@@ -8156,7 +8226,7 @@ GameObject:
   - component: {fileID: 1620723198}
   - component: {fileID: 1620723200}
   - component: {fileID: 1620723199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundPlanet1
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -11443,6 +11513,10 @@ PrefabInstance:
       value: movingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_TagString
       value: ground
       objectReference: {fileID: 0}
@@ -12098,6 +12172,7 @@ GameObject:
   - component: {fileID: 2048540674}
   - component: {fileID: 2048540675}
   - component: {fileID: 2048540676}
+  - component: {fileID: 2048540677}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12120,8 +12195,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 2
+  m_Material: {fileID: 6200000, guid: 7e6b0ee16f1fc4c4ea1b212940e103f1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12144,6 +12219,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377e5435ea135aa488e28531040dd314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 2048540669}
+  animator: {fileID: 2048540674}
+  moveSpeed: 5
+  jumpPower: 8
+  maxJumps: 2
+  jumpsRemaining: 0
+  groundCheckPos: {fileID: 348987085}
+  groundCheckSize: {x: 0.41, y: 0.03}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  baseGravity: 2
+  maxFallSpeed: 10
+  fallSpeedMultiplier: 2
+  wallCheckPos: {fileID: 1037827169}
+  wallCheckSize: {x: 0.05, y: 0.86}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  wallSlideSpeed: 2
+  wallJumpPower: {x: 5, y: 10}
 --- !u!61 &2048540671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12176,7 +12272,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.051690757, y: -0.099855095}
+  m_Offset: {x: -0.048244476, y: -0.099855095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12187,7 +12283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6115395, y: 0.8569824}
+  m_Size: {x: 0.6097946, y: 0.8569824}
   m_EdgeRadius: 0
 --- !u!212 &2048540672
 SpriteRenderer:
@@ -12232,7 +12328,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 1722018738, guid: a8ac25db8f6cd5b468223516bf3d6616, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.8666667, y: 1.4}
@@ -12251,9 +12347,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -76.9, y: -43.7, z: 0}
-  m_LocalScale: {x: 1.0065, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 348987085}
+  - {fileID: 1037827169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2048540674
@@ -12284,7 +12382,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048540668}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -12331,6 +12429,108 @@ MonoBehaviour:
   - {fileID: 808987840}
   - {fileID: 1236610550}
   - {fileID: 239965263}
+--- !u!114 &2048540677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048540668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1a73000e210262f418ee9c8b2c8c3086, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2048540670}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 88208d77-8726-4315-94d7-3da14f02322b
+    m_ActionName: Player/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0de3678-951f-4774-9f55-6a87b5daca0b
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8e48269a-5704-449f-b6ae-9e03ca073f35
+    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab4afc58-9eb3-4d38-9f3b-4d8d07846e53
+    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 936d163f-a9fd-4cac-8a45-71fb0f74dc91
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d97d1a48-6772-42b8-aa13-ae93c9226dd4
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09025cc4-a113-4a9f-aebc-944e9e0a4989
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83422aff-82fd-42fb-8b5a-252c81ee5bab
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0920cf5-c454-4251-87e6-65af8315288c
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 639f5b2e-1baa-44d8-ac30-234a3bb01e09
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d474118-2aef-4736-985c-a9283e13a1bd
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2048540670}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b1c7ccdc-e39b-40c8-8dc0-535484851979
+    m_ActionName: Player/Jump[/Keyboard/upArrow,/Keyboard/space,/Keyboard/w]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2051635490
 GameObject:
   m_ObjectHideFlags: 0
@@ -12742,6 +12942,10 @@ PrefabInstance:
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_Name
       value: movingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4188895997946984736, guid: 21e310fcd8dc81f49bd6709eb4adf441, type: 3}
       propertyPath: m_TagString
