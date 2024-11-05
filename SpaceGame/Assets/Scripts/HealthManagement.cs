@@ -6,13 +6,21 @@ using UnityEngine;
 
 public class HealthManagement : MonoBehaviour
 {
+    private int maxHealth = 5;
     public int healthPoints = 5;
     float damageTimer = 0f;
     float timeInBetweenDamage = 2.0f;
     bool inLava = false;
+    public Transform respawnLocation;
+    Camera myCamera;
 
     //ui heart
     public GameObject[] myHearts;
+
+    private void Awake()
+    {
+        myCamera = Camera.main;
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,20 +36,41 @@ public class HealthManagement : MonoBehaviour
                 Debug.Log(healthPoints);
             }
         }
+        if(healthPoints == 0)
+        {
+            Respawn();
+        }
+
     }
     //method to call when the player takes damage
     private void TakeDamage(int damage)
     {
        if(healthPoints > 0)
         {
-            healthPoints -= damage;
-            myHearts[healthPoints].SetActive(false);
+            for(int i = 0; i< damage; i++)
+            {
+                healthPoints -= damage;
+                myHearts[healthPoints].SetActive(false);
+            }
+            
         }
         else
         {
             Debug.Log(healthPoints + ": Player dead");
+           
         }
 
+    }
+    private void GainHealth(int healthGain)
+    {
+        if(healthPoints < maxHealth)
+        {
+            for(int i = 0; i < healthGain; i++)
+            {
+                myHearts[healthPoints].SetActive(true);
+                healthPoints++;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -67,6 +96,12 @@ public class HealthManagement : MonoBehaviour
         {
             inLava = false;
         }
+    }
+    private void Respawn()
+    {
+        myCamera.GetComponent<cameraController>().planetnb = 0;
+        transform.position = new Vector2(respawnLocation.position.x, respawnLocation.position.y);
+        GainHealth(maxHealth);
     }
   
 }

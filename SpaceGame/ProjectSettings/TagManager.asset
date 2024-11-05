@@ -10,6 +10,7 @@ TagManager:
   - Lava
   - Spike
   - ground
+  - Collectible
   layers:
   - Default
   - TransparentFX
