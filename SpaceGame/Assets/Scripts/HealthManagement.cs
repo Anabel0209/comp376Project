@@ -17,10 +17,17 @@ public class HealthManagement : MonoBehaviour
     //ui heart
     public GameObject[] myHearts;
 
+    public Animator animator;
+
     private void Awake()
     {
         myCamera = Camera.main;
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -45,22 +52,30 @@ public class HealthManagement : MonoBehaviour
     //method to call when the player takes damage
     private void TakeDamage(int damage)
     {
-       if(healthPoints > 0)
+        if (healthPoints > 0)
         {
-            for(int i = 0; i< damage; i++)
+            Debug.Log("TakeDamage method called, triggering animation.");
+            if (animator != null)
+            {
+                animator.SetTrigger("TakeDamage");
+                Debug.Log("Animator TakeDamage trigger set.");
+            }
+
+            for (int i = 0; i < damage; i++)
             {
                 healthPoints -= damage;
                 myHearts[healthPoints].SetActive(false);
             }
-            
         }
         else
         {
             Debug.Log(healthPoints + ": Player dead");
-           
         }
-
     }
+
+
+
+
     private void GainHealth(int healthGain)
     {
         if(healthPoints < maxHealth)
@@ -77,12 +92,14 @@ public class HealthManagement : MonoBehaviour
     {
         if(collision.collider.CompareTag("Lava"))
         {
+            Debug.Log("Collided with Lava");
             TakeDamage(1);
             inLava = true;
 
         }
         if(collision.collider.CompareTag("Spike"))
         {
+            Debug.Log("Collided with Spike.");
             TakeDamage(1);
             ContactPoint2D contact = collision.contacts[0];
             Vector2 forceDirection = contact.normal;
@@ -103,5 +120,14 @@ public class HealthManagement : MonoBehaviour
         transform.position = new Vector2(respawnLocation.position.x, respawnLocation.position.y);
         GainHealth(maxHealth);
     }
-  
+    public void ResetTakeDamage()
+    {
+        if (animator != null)
+        {
+            animator.ResetTrigger("TakeDamage");
+            Debug.Log("TakeDamage trigger reset.");
+        }
+    }
+
+
 }
