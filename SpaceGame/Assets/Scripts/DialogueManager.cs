@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject playerPanel; // Panel to show when the player is speaking
     public TextMeshProUGUI npcNameTextComponent;
 
+    public PlayerMovement playerMovement; // Reference to PlayerMovement script
+
     private Coroutine typingCoroutine;
     private Queue<string> playerLinesQueue; // Queue to hold player lines
 
@@ -40,6 +42,12 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
 
+        // Disable player movement at the start of dialogue
+        if (playerMovement != null)
+        {
+            playerMovement.DisableMovement();
+        }
+
         // Debug to check if npcName is received correctly
         Debug.Log("NPC Name received: " + npcName);
 
@@ -57,8 +65,6 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-
-
 
     IEnumerator TypeLines(string[] lines, float textSpeed)
     {
@@ -124,5 +130,11 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         npcTextComponent.text = string.Empty;
         playerTextComponent.text = string.Empty;
+
+        // Enable player movement after the dialogue ends
+        if (playerMovement != null)
+        {
+            playerMovement.EnableMovement();
+        }
     }
 }
