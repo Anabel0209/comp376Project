@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 75af2dde28e43334e814ede0b5dc0fda
+guid: a472c19eb04365f418ac547929f106ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,64 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alien Boss - Idle_0
+      name: pngegg (5)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 59
-        height: 64
+        x: 428
+        y: 1080
+        width: 5385
+        height: 4090
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2461, y: 1708, z: 2487, w: 1953}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8000416861e29ea4d947c8d3df9e3922
-      internalID: 436900802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien Boss - Idle_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 59
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 212a74b206b2d3848b60f93779384a4b
-      internalID: -1393323547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien Boss - Idle_2
-      rect:
-        serializedVersion: 2
-        x: 126
-        y: 0
-        width: 57
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54f4b2a9569b5254d8f1ae6fee94e3b2
-      internalID: -1566737493
+      spriteID: bb9d703d77469904f865cd4d3d8f8ddc
+      internalID: -985224856
       vertices: []
       indices: 
       edges: []
@@ -183,9 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alien Boss - Idle_0: 436900802
-      Alien Boss - Idle_1: -1393323547
-      Alien Boss - Idle_2: -1566737493
+      pngegg (5)_0: -985224856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

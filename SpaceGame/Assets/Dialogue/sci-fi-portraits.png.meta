@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b48cd501c450d894c952937f3f8eb039
+guid: ab1bee9664ab9a1408ac26610770fa0c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pumpkinhead_Idle_strip4_0
+      name: sci-fi-portraits_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 22
-        width: 22
-        height: 24
+        x: 12
+        y: 208
+        width: 68
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e0c7688e9add9148ba1bbd5bb403e70
-      internalID: -1903899166
+      spriteID: a584549199797a345821bd7c9bf6bf07
+      internalID: 1869549243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pumpkinhead_Idle_strip4_1
+      name: sci-fi-portraits_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 22
-        width: 18
-        height: 22
+        x: 80
+        y: 208
+        width: 69
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad3b4f227ffe4a4489293fbace5500d2
-      internalID: 268316681
+      spriteID: 9c2d679f20f48744e8063492306f3330
+      internalID: -1881817598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pumpkinhead_Idle_strip4_2
+      name: sci-fi-portraits_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 22
-        width: 18
-        height: 23
+        x: 11
+        y: 144
+        width: 69
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d57e102e5ce0d46926fb27fbc2d8ae
-      internalID: 921150823
+      spriteID: 334cdd8ae77818145928becd5bac9119
+      internalID: 1494199797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pumpkinhead_Idle_strip4_3
+      name: sci-fi-portraits_3
       rect:
         serializedVersion: 2
-        x: 213
-        y: 22
-        width: 21
-        height: 22
+        x: 80
+        y: 144
+        width: 70
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d053e74491f803a4eb3659933b3cfeab
-      internalID: 645407173
+      spriteID: 845891b06096eee4e9be8a8753f84662
+      internalID: -1221420131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sci-fi-portraits_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 80
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ee420366233734dacf95b364132acb
+      internalID: 925132850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sci-fi-portraits_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 70
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8244120bc77827a498a0d02bc6e1f297
+      internalID: 1490002277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sci-fi-portraits_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 16
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c75a158f8db35488223e7ee2d89853
+      internalID: 1114290733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sci-fi-portraits_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 16
+        width: 70
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e24695b2715be4d85b214996ec09ac
+      internalID: 1361055164
       vertices: []
       indices: 
       edges: []
@@ -204,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pumpkinhead_Idle_strip4_0: -1903899166
-      Pumpkinhead_Idle_strip4_1: 268316681
-      Pumpkinhead_Idle_strip4_2: 921150823
-      Pumpkinhead_Idle_strip4_3: 645407173
+      sci-fi-portraits_0: 1869549243
+      sci-fi-portraits_1: -1881817598
+      sci-fi-portraits_2: 1494199797
+      sci-fi-portraits_3: -1221420131
+      sci-fi-portraits_4: 925132850
+      sci-fi-portraits_5: 1490002277
+      sci-fi-portraits_6: 1114290733
+      sci-fi-portraits_7: 1361055164
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
