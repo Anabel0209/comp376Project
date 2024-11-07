@@ -6,6 +6,7 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
     public GameObject mayorImage;
     public GameObject turnipImage;
+    public GameObject pigImage;
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
 
@@ -22,6 +23,10 @@ public class Dialogue : MonoBehaviour
             {
                 npcName = "Villager";
             }
+            else if (gameObject.name == "Pig")
+            {
+                npcName = "Piggy";
+            }
             else
             {
                 npcName = "Unknown NPC"; // Fallback name
@@ -37,6 +42,7 @@ public class Dialogue : MonoBehaviour
         // Hide all images first
         if (mayorImage != null) mayorImage.SetActive(false);
         if (turnipImage != null) turnipImage.SetActive(false);
+        if (pigImage != null) pigImage.SetActive(false);
 
         // Show the specific image for the NPC clicked
         if (gameObject.name == "Mayor" && mayorImage != null)
@@ -46,6 +52,10 @@ public class Dialogue : MonoBehaviour
         else if (gameObject.name == "Villager" && turnipImage != null)
         {
             turnipImage.SetActive(true);
+        }
+        else if (gameObject.name == "Pig" && pigImage != null)
+        {
+            pigImage.SetActive(true);
         }
     }
 

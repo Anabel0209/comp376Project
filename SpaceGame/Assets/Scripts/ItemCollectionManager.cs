@@ -22,7 +22,7 @@ public class ItemCollectionManager : MonoBehaviour
         inGameImageOfItem.GetComponent<Image>().sprite = itemToCollect;
         if (shouldCollectItem)
         {
-            counterItems.SetText(count.ToString() + "/" + goal.ToString());
+            counterItems.SetText(count.ToString());
             itemCollectionDisplay.SetActive(true);
             if(goal == count)
             {
@@ -35,6 +35,13 @@ public class ItemCollectionManager : MonoBehaviour
         else
         {
             itemCollectionDisplay.SetActive(false);
+        }
+    }
+    public void DecrementCount(int amountToDecrement)
+    {
+        if(count >= amountToDecrement)
+        {
+            count = count - amountToDecrement;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
