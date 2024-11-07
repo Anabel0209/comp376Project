@@ -14,7 +14,7 @@ public class ItemCollectionManager : MonoBehaviour
     public GameObject itemCollectionDisplay;
     public GameObject inGameImageOfItem;
     private bool hasReachedGoal;
-    
+
 
 
     private void Update()
@@ -24,7 +24,7 @@ public class ItemCollectionManager : MonoBehaviour
         {
             counterItems.SetText(count.ToString());
             itemCollectionDisplay.SetActive(true);
-            if(goal == count)
+            if (goal == count)
             {
                 hasReachedGoal = true;
                 //itemCollectionDisplay.SetActive(false);
@@ -39,7 +39,7 @@ public class ItemCollectionManager : MonoBehaviour
     }
     public void DecrementCount(int amountToDecrement)
     {
-        if(count >= amountToDecrement)
+        if (count >= amountToDecrement)
         {
             count = count - amountToDecrement;
         }
@@ -50,7 +50,7 @@ public class ItemCollectionManager : MonoBehaviour
         {
             count++;
             Destroy(collision.gameObject);
-            
+
         }
     }
 }

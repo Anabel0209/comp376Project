@@ -22,16 +22,16 @@ public class MidPointTrigger : MonoBehaviour
     {
         Debug.Log(amountOfItem + "   " + hasBeenDestroyed);
 
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            if(amountOfItem >= 7 && hasBeenDestroyed == false)
+            if (amountOfItem >= 7 && hasBeenDestroyed == false)
             {
                 Debug.Log("in trigger");
                 Destroy(itemToDestroyToOpenPath);
                 hasBeenDestroyed = true;
                 player.gameObject.GetComponent<ItemCollectionManager>().DecrementCount(priceToContinue);
             }
-           
+
         }
     }
 }
