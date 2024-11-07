@@ -43928,6 +43928,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1053027019}
     m_Modifications:
+    - target: {fileID: 2533889879907854734, guid: 756b3a8440d694f4995e2bb996eff1d6, type: 3}
+      propertyPath: textSpeed
+      value: 0.035
+      objectReference: {fileID: 0}
     - target: {fileID: 5440153689930783697, guid: 756b3a8440d694f4995e2bb996eff1d6, type: 3}
       propertyPath: m_Name
       value: Pig
@@ -43975,6 +43979,10 @@ PrefabInstance:
     - target: {fileID: 5794517805590404933, guid: 756b3a8440d694f4995e2bb996eff1d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448315560166486243, guid: 756b3a8440d694f4995e2bb996eff1d6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44972,7 +44980,7 @@ Transform:
   m_GameObject: {fileID: 2048540668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76.9, y: -43.7, z: 0}
+  m_LocalPosition: {x: -77.02, y: -43.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45264,7 +45272,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.09411766, g: 0.1254902, b: 0.22352943, a: 1}
+  m_Color: {r: 0.08627451, g: 0.14117648, b: 0.23584908, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -45782,6 +45790,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6790102133947200394, guid: 078467496bcb04347951629c0018c861, type: 3}
+      propertyPath: textSpeed
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790102133947200394, guid: 078467496bcb04347951629c0018c861, type: 3}
       propertyPath: mayorImage
       value: 
       objectReference: {fileID: 716781615}
@@ -45897,6 +45909,10 @@ PrefabInstance:
     - target: {fileID: 7275454899469735847, guid: a1111fd18d3b7c14a904eeb3106368be, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104324529935807756, guid: a1111fd18d3b7c14a904eeb3106368be, type: 3}
+      propertyPath: textSpeed
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 8104324529935807756, guid: a1111fd18d3b7c14a904eeb3106368be, type: 3}
       propertyPath: mayorImage

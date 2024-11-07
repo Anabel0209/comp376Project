@@ -48,12 +48,7 @@ public class DialogueManager : MonoBehaviour
             playerMovement.DisableMovement();
         }
 
-        // Debug to check if npcName is received correctly
-        Debug.Log("NPC Name received: " + npcName);
-
-        // Set the NPC's name
         npcNameTextComponent.text = npcName;
-
         typingCoroutine = StartCoroutine(TypeLines(npcLines, textSpeed));
 
         if (playerLines != null)
