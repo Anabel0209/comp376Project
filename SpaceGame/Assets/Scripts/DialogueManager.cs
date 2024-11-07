@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject playerPanel; // Panel to show when the player is speaking
     public TextMeshProUGUI npcNameTextComponent;
 
+    public AudioSource alienSound; // Audio source for the alien sound effect
+    public AudioSource playerSound; // Audio source for the player sound effect
+
     public PlayerMovement playerMovement; // Reference to PlayerMovement script
 
     private Coroutine typingCoroutine;
@@ -70,6 +73,8 @@ public class DialogueManager : MonoBehaviour
         foreach (string line in lines)
         {
             npcTextComponent.text = string.Empty;
+            PlayAlienSound(); // Play alien sound when NPC starts a line
+
             foreach (char c in line.ToCharArray())
             {
                 npcTextComponent.text += c;
@@ -103,6 +108,11 @@ public class DialogueManager : MonoBehaviour
         {
             string line = playerLinesQueue.Dequeue();
             playerTextComponent.text = string.Empty;
+
+            // Play the player sound once when starting a new player line
+            PlayPlayerSound();
+
+
             foreach (char c in line.ToCharArray())
             {
                 playerTextComponent.text += c;
@@ -130,6 +140,30 @@ public class DialogueManager : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.EnableMovement();
+        }
+    }
+
+    private void PlayAlienSound()
+    {
+        if (alienSound != null)
+        {
+            if (alienSound.isPlaying)
+            {
+                alienSound.Stop(); // Stop the current sound if it's playing
+            }
+            alienSound.Play();
+        }
+    }
+
+    private void PlayPlayerSound()
+    {
+        if (playerSound != null)
+        {
+            if (playerSound.isPlaying)
+            {
+                playerSound.Stop(); // Stop the current sound if it's playing
+            }
+            playerSound.Play();
         }
     }
 }

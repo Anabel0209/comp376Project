@@ -13,6 +13,8 @@ public class StartMenu : MonoBehaviour
     public GameObject fadePanel;          // Reference to the Fade Panel for transitions
     public float fadeDuration = 2f;       // Duration of the fade effect
 
+    public AudioSource backgroundAudio;   // Reference to the AudioSource component for background music
+
     private CanvasGroup fadeCanvasGroup;
 
     private void Start()
@@ -28,6 +30,15 @@ public class StartMenu : MonoBehaviour
             fadeCanvasGroup = fadePanel.AddComponent<CanvasGroup>();
         }
         fadeCanvasGroup.alpha = 0f; // Start fully transparent
+
+
+        // Play background audio if assigned
+        if (backgroundAudio != null)
+        {
+            backgroundAudio.loop = true; // Ensure looping
+            backgroundAudio.Play();
+        }
+
 
         // Register for the video completion event for the intro video
         if (introVideoPlayer != null)

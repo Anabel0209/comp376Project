@@ -15,9 +15,10 @@ public class teleporter : MonoBehaviour
     public Button goToPlanet1Button;
     public Button goToMainPlanetButton;
 
-
+    public float interactionRadius = 5f; // Radius within which the player can interact
 
     private bool isTeleporting = false;
+    private bool panelIsOpen = false; // Add this line to declare panelIsOpen
 
 
     private void Awake()
@@ -34,6 +35,17 @@ public class teleporter : MonoBehaviour
 
     void Update()
     {
+        // Check distance between player and spaceship
+        float distanceToPlayer = Vector2.Distance(transform.position, myCharacter.transform.position);
+
+        // If panel is open, only hide it when the player moves out of range
+        if (panelIsOpen && distanceToPlayer > interactionRadius)
+        {
+            teleportPanel.SetActive(false);
+            panelIsOpen = false; // Reset the flag
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -43,6 +55,7 @@ public class teleporter : MonoBehaviour
             {
                 // Show the teleport panel when a spaceship is clicked
                 teleportPanel.SetActive(true);
+                panelIsOpen = true; // Set the flag
 
                 // Determine the appropriate button based on the spaceship's current position
                 if (Vector2.Distance(transform.position, planet1.position) < 0.1f) // Close to Planet1
@@ -67,6 +80,7 @@ public class teleporter : MonoBehaviour
 
 
     public int CurrentPlanet { get; private set; } = 0; // 0 for Main Planet, 1 for Planet1
+
 
     public void SetCurrentPlanet(int planetNumber)
     {
@@ -94,6 +108,7 @@ public class teleporter : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         teleportPanel.SetActive(false);
         isTeleporting = true; // Set teleporting state to true
+        panelIsOpen = false; // Reset the panel state
     }
 
     private IEnumerator TeleportToMainPlanet()
@@ -115,6 +130,7 @@ public class teleporter : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         teleportPanel.SetActive(false);
         isTeleporting = true; // Set teleporting state to true
+        panelIsOpen = false; // Reset the panel state
     }
 
 }
