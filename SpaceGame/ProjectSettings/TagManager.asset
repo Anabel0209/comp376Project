@@ -11,6 +11,9 @@ TagManager:
   - Spike
   - ground
   - Collectible
+  - HorizontalSpike
+  - VerticalSpike
+  - Slide
   layers:
   - Default
   - TransparentFX

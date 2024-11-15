@@ -97,7 +97,19 @@ public class HealthManagement : MonoBehaviour
             inLava = true;
 
         }
-        if(collision.collider.CompareTag("Spike"))
+        if(collision.collider.CompareTag("VerticalSpike"))
+        {
+            gameObject.GetComponent<PlayerMovement>().canMove = false;
+
+            Debug.Log("Collided with Spike.");
+            TakeDamage(1);
+            ContactPoint2D contact = collision.contacts[0];
+            Vector2 forceDirection = contact.normal;
+            Debug.Log(forceDirection);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * 4f, ForceMode2D.Impulse);
+
+        }
+        if (collision.collider.CompareTag("HorizontalSpike"))
         {
             Debug.Log("Collided with Spike.");
             TakeDamage(1);
@@ -106,6 +118,13 @@ public class HealthManagement : MonoBehaviour
             Debug.Log(forceDirection);
             gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * 6f, ForceMode2D.Impulse);
         }
+        if (collision.collider.CompareTag("Slide"))
+        {
+            Debug.Log("Collided with slide.");
+            gameObject.GetComponent<PlayerMovement>().StartSliding();
+
+        }
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

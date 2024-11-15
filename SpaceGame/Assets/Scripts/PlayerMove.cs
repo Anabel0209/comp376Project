@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     bool isFacingRight = true;
+    private bool isSliding = false;//added
 
     [Header("Movement")]
     public float moveSpeed = 5f;
-    private bool canMove = true;
+    public bool canMove = true; //made it public to access it in the healthManagement class
 
     float horizontalMovement;
 
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         ProcessWallSlide();
         ProcessWallJump();
 
-        if (!isWallJumping)
+        if (!isWallJumping && canMove && !isSliding) //added && canMove
         {
             rb.velocity = new Vector2(horizontalMovement * (moveSpeed), rb.velocity.y); //move
             Flip();
@@ -71,10 +72,16 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isWallSliding", isWallSliding);
 
     }
+    public void StartSliding()
+    {
+        isSliding = true;
+        rb.velocity = new Vector2(transform.localScale.x * moveSpeed, rb.velocity.y);
+        jumpsRemaining = 0;
+    }
 
     public void ProcessGravity()
     {
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 || isSliding)
         {
             rb.gravityScale = baseGravity * fallSpeedMultiplier; //player falls increasingly faster
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed)); //caps fallspeed
@@ -88,7 +95,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontalMovement = context.ReadValue<Vector2>().x;
+ 
+        if (isSliding)
+        {
+            horizontalMovement = 0;
+        }
+        else
+        {
+            horizontalMovement = context.ReadValue<Vector2>().x;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -150,6 +165,13 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpsRemaining = maxJumps;
             isGrounded = true;
+            canMove = true; //added for the spikes behaviour
+
+            if(isSliding)
+            {
+                isSliding = false;
+            }
+
         }
         else
         {
@@ -220,6 +242,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisableMovement()
     {
+        
         horizontalMovement = 0;
         canMove = false;
         enabled = false;
