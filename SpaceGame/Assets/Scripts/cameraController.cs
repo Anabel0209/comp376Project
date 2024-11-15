@@ -11,6 +11,7 @@ public class cameraController : MonoBehaviour
     //camera boundaries
     public Transform topLeftMainPlanet, bottomRightMainPlanet;
     public Transform topLeftPlanet1, bottomRightPlanet1;
+    public Transform topLeftPlanet2, bottomRightPlanet2;
 
     //camera size
     private float camHalfLength;
@@ -38,6 +39,7 @@ public class cameraController : MonoBehaviour
 
         if (planetnb == 0)
         {
+            Debug.Log("Camera on mainPlanet");
             //horizontal and vertical clamping
             horizontalPosition = Mathf.Clamp(target.position.x, topLeftMainPlanet.position.x + camHalfLength, bottomRightMainPlanet.position.x - camHalfLength);
             verticalPosition = Mathf.Clamp(target.position.y, bottomRightMainPlanet.position.y + camHalfHeight, topLeftMainPlanet.position.y - camHalfHeight);
@@ -46,14 +48,22 @@ public class cameraController : MonoBehaviour
         }
         if(planetnb == 1)
         {
+            Debug.Log("Camera on planet 1");
             //horizontal and vertical clamping
             horizontalPosition = Mathf.Clamp(target.position.x, topLeftPlanet1.position.x + camHalfLength, bottomRightPlanet1.position.x - camHalfLength);
             verticalPosition = Mathf.Clamp(target.position.y, bottomRightPlanet1.position.y + camHalfHeight, topLeftPlanet1.position.y - camHalfHeight);
 
             transform.position = new Vector3(horizontalPosition, verticalPosition, transform.position.z);
         }
+        if (planetnb == 2)
+        {
+            Debug.Log("Camera on planet 2");
+            //horizontal and vertical clamping
+            horizontalPosition = Mathf.Clamp(target.position.x, topLeftPlanet2.position.x + camHalfLength, bottomRightPlanet2.position.x - camHalfLength);
+            verticalPosition = Mathf.Clamp(target.position.y, bottomRightPlanet2.position.y + camHalfHeight, topLeftPlanet2.position.y - camHalfHeight);
 
-
+            transform.position = new Vector3(horizontalPosition, verticalPosition, transform.position.z);
+        }
 
     }
 }
