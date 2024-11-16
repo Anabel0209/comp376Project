@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\",
+  "WorkspaceRootPath": "C:\\Users\\Mela\\Desktop\\SpaceGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|c:\\users\\anabe\\onedrive\\bureau\\version5\\spacegame\\assets\\scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|c:\\users\\anabe\\onedrive\\bureau\\version5\\spacegame\\assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|c:\\users\\anabe\\onedrive\\bureau\\version5\\spacegame\\assets\\scripts\\midpointtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\midpointtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|c:\\users\\anabe\\onedrive\\bureau\\version5\\spacegame\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\Mela\\Desktop\\SpaceGame\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\assets\\scripts\\healthmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\Mela\\Desktop\\SpaceGame\\assets\\scripts\\midpointtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\midpointtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\assets\\scripts\\moovingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\Mela\\Desktop\\SpaceGame\\assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\Mela\\Desktop\\SpaceGame\\assets\\scripts\\moovingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\moovingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|c:\\users\\mela\\desktop\\spacegame\\assets\\scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|C:\\Users\\Mela\\Desktop\\SpaceGame\\assets\\scripts\\healthmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6069C91B-B0DC-90CE-2EC4-147CEED1ED66}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,28 +34,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "cameraController.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\cameraController.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\cameraController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\cameraController.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\cameraController.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\cameraController.cs",
               "RelativeToolTip": "Assets\\Scripts\\cameraController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAYwCgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T20:32:35.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "teleporter.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\teleporter.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
               "RelativeToolTip": "Assets\\Scripts\\teleporter.cs",
               "ViewState": "AgIAAIAAAAAAAAAAAAAcwJcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -64,24 +64,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MidPointTrigger.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\MidPointTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\MidPointTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MidPointTrigger.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\MidPointTrigger.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\MidPointTrigger.cs",
               "RelativeToolTip": "Assets\\Scripts\\MidPointTrigger.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAswBoAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T18:33:30.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HealthManagement.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HealthManagement.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
               "RelativeToolTip": "Assets\\Scripts\\HealthManagement.cs",
               "ViewState": "AgIAAGIAAAAAAAAAAAAQwHwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -89,28 +89,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PlayerMove.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\PlayerMove.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMove.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\PlayerMove.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMove.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAwwE4AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAADgv0EAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T18:33:45.192Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "MoovingPlatform.cs",
-              "DocumentMoniker": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\MoovingPlatform.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\MoovingPlatform.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MoovingPlatform.cs",
-              "ToolTip": "C:\\Users\\anabe\\OneDrive\\Bureau\\version5\\SpaceGame\\Assets\\Scripts\\MoovingPlatform.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\MoovingPlatform.cs",
               "RelativeToolTip": "Assets\\Scripts\\MoovingPlatform.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwC0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T00:20:05.25Z"
+              "WhenOpened": "2024-11-05T00:20:05.25Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -48,7 +48,7 @@ public class cameraController : MonoBehaviour
         }
         if(planetnb == 1)
         {
-            Debug.Log("Camera on planet 1");
+            //Debug.Log("Camera on planet 1");
             //horizontal and vertical clamping
             horizontalPosition = Mathf.Clamp(target.position.x, topLeftPlanet1.position.x + camHalfLength, bottomRightPlanet1.position.x - camHalfLength);
             verticalPosition = Mathf.Clamp(target.position.y, bottomRightPlanet1.position.y + camHalfHeight, topLeftPlanet1.position.y - camHalfHeight);

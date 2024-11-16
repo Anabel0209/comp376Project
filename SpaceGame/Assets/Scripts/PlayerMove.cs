@@ -2,6 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("GroundCheck")]
     public Transform groundCheckPos;
-    public Vector2 groundCheckSize = new Vector2(0.49f, 0.03f);
+    public Vector2 groundCheckSize = new Vector2(0.6f, 0.1f); //(0.49f, 0.03f);
     public LayerMask groundLayer;
     bool isGrounded;
 
@@ -48,9 +49,35 @@ public class PlayerMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpPower = new Vector2(5f, 10f);
 
+    [Header("SpotLight")]
+    public Light2D spotlight;
+    private bool isSpotlightOn = false;
+    public SpriteRenderer spriteRenderer;
+    public Material defaultMaterial;
+    public Material spriteLitMaterial;
+
+
+    [Header("Target Area")]
+    public Vector2 bottomLeftCorner = new Vector2(132.5319f, 20f);
+    public Vector2 topRightCorner = new Vector2(190f, 77f); 
+
+    private bool isInTargetArea = false;
+
+    private float materialChangeCooldown = 0.1f; 
+    private float lastMaterialChangeTime = 0;
+
 
     private void Start()
     {
+        if (spotlight != null)
+        {
+            spotlight.enabled = false;
+        }
+
+        if (spriteRenderer != null && defaultMaterial != null)
+        {
+            spriteRenderer.material = defaultMaterial;
+        }
 
     }
 
@@ -71,7 +98,59 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("magnitude", rb.velocity.magnitude);
         animator.SetBool("isWallSliding", isWallSliding);
 
+        CheckTargetArea();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ToggleSpotlight();
+        }
+
     }
+    private void CheckTargetArea()
+    {
+        Vector2 playerPosition = transform.position;
+
+        float buffer = 0.5f;
+
+        bool isInArea = playerPosition.x >= bottomLeftCorner.x - buffer && playerPosition.x <= topRightCorner.x + buffer &&
+                        playerPosition.y >= bottomLeftCorner.y - buffer && playerPosition.y <= topRightCorner.y + buffer;
+
+        if (Time.time - lastMaterialChangeTime >= materialChangeCooldown)
+        {
+            if (isInArea && !isInTargetArea)
+            {                
+                isInTargetArea = true;
+                ChangeMaterial(spriteLitMaterial);
+                lastMaterialChangeTime = Time.time;
+            }
+            else if (!isInArea && isInTargetArea)
+            {
+                isInTargetArea = false;
+                ChangeMaterial(defaultMaterial);
+                lastMaterialChangeTime = Time.time;
+            }
+        }
+    }
+
+
+    private void ChangeMaterial(Material material)
+    {
+        if (spriteRenderer != null && material != null)
+        {
+            spriteRenderer.material = material;
+        }
+    }
+
+    private void ToggleSpotlight()
+    {
+        if (spotlight != null)
+        {
+            isSpotlightOn = !isSpotlightOn;
+            spotlight.enabled = isSpotlightOn;
+
+        }
+    }
+
     public void StartSliding()
     {
         isSliding = true;
@@ -238,6 +317,12 @@ public class PlayerMovement : MonoBehaviour
         //wallCheck box
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
+        
+            // GroundCheck box
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
+        
+
     }
 
     public void DisableMovement()
@@ -253,5 +338,6 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         enabled = true;
     }
+
 
 }
