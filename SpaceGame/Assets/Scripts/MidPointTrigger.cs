@@ -9,7 +9,9 @@ public class MidPointTrigger : MonoBehaviour
     int amountOfItem;
     public GameObject player;
     public int priceToContinue;
-    public GameObject blockingObject;
+    public GameObject behaviourOnObject;
+    public GameObject animationOn;
+    public int planetNb;
 
     void Update()
     {
@@ -27,11 +29,23 @@ public class MidPointTrigger : MonoBehaviour
                 //decrement the nb of items
                 player.gameObject.GetComponent<ItemCollectionManager>().DecrementCount(priceToContinue);
 
-                //play the animation
-                blockingObject.GetComponent<Animator>().SetTrigger("dissapear");
+                if(planetNb == 1)
+                {
+                    //play the animation
+                    animationOn.GetComponent<Animator>().SetTrigger("dissapear");
 
-                //disable the collider
-                blockingObject.GetComponent<Collider2D>().enabled = false;
+                    //disable the collider
+                    behaviourOnObject.GetComponent<Collider2D>().enabled = false;
+                }
+                if(planetNb == 2)
+                {
+                    //play the animation
+                    animationOn.GetComponent<Animator>().SetTrigger("makeBridgeAppear");
+
+                    //ennable the collider
+                    behaviourOnObject.GetComponent<Collider2D>().enabled = true;
+                }
+
             }
         }
     }
