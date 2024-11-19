@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public bool canMove = true; //made it public to access it in the healthManagement class
 
+    [Header("Ice Sliding Settings")]
+    public float iceFriction = 0.98f; // Friction factor for ice, closer to 1 means more sliding
+
+    private bool isOnIce = false;
+
     float horizontalMovement;
 
     [Header("Jumping")]
@@ -79,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.material = defaultMaterial;
         }
 
+        
+
     }
 
     private void Update()
@@ -93,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(horizontalMovement * (moveSpeed), rb.velocity.y); //move
             Flip();
         }
+        
 
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetFloat("magnitude", rb.velocity.magnitude);
@@ -106,6 +114,54 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+
+    private void FixedUpdate()
+    {
+        if (canMove)
+        {
+            if (isOnIce)
+            {
+                // Apply sliding behavior on ice
+                rb.velocity = new Vector2(rb.velocity.x * iceFriction, rb.velocity.y);
+
+                // If there is player input, apply some control over the sliding
+                if (Mathf.Abs(horizontalMovement) > 0.01f)
+                {
+                    rb.AddForce(new Vector2(horizontalMovement * moveSpeed, 0), ForceMode2D.Force);
+                }
+            }
+            else
+            {
+                // Normal movement
+                rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ice"))
+        {
+            isOnIce = true;
+            Debug.Log("Player is on ice");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ice"))
+        {
+            isOnIce = false;
+        }
+    }
+
+
+
+
+
+
+
     private void CheckTargetArea()
     {
         Vector2 playerPosition = transform.position;
@@ -174,7 +230,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
- 
+
+        horizontalMovement = context.ReadValue<Vector2>().x;
         if (isSliding)
         {
             horizontalMovement = 0;

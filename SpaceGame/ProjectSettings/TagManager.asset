@@ -15,6 +15,7 @@ TagManager:
   - VerticalSpike
   - Slide
   - water
+  - Ice
   layers:
   - Default
   - TransparentFX

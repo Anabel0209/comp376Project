@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class teleporter : MonoBehaviour
 {
@@ -11,11 +12,21 @@ public class teleporter : MonoBehaviour
     public Transform planet2; //Reference to planet 2's Transform
     private Camera myCamera;
 
+    // UI Elements for teleport animation
+    public GameObject teleportanimationPanel;
+    public Image spaceshipImage;
+    public RectTransform mainPlanetImage;
+    public RectTransform planet1Image;
+    public RectTransform planet2Image;
+    public float animationDuration = 3f;
+
+
     // UI Elements
     public GameObject teleportPanel; // Reference to the UI panel
     public Button goToPlanet1Button;
     public Button goToMainPlanetButton;
     public Button goToPlanet2Button;
+
 
     public float interactionRadius = 5f; // Radius within which the player can interact
 
@@ -31,9 +42,9 @@ public class teleporter : MonoBehaviour
         teleportPanel.SetActive(false);
 
         // Add button listeners for teleporting
-        goToPlanet1Button.onClick.AddListener(() => StartCoroutine(TeleportToPlanet1()));
-        goToMainPlanetButton.onClick.AddListener(() => StartCoroutine(TeleportToMainPlanet()));
-        goToPlanet2Button.onClick.AddListener(() => StartCoroutine(TeleportToPlanet2()));
+        goToPlanet1Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet1Image, 1)));
+        goToMainPlanetButton.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(planet1Image, mainPlanetImage, 0)));
+        goToPlanet2Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet2Image, 2)));
     }
 
     void Update()
@@ -49,6 +60,9 @@ public class teleporter : MonoBehaviour
             return;
         }
 
+        
+
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -56,32 +70,107 @@ public class teleporter : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
+                
                 // Show the teleport panel when a spaceship is clicked
                 teleportPanel.SetActive(true);
                 panelIsOpen = true; // Set the flag
 
-                // Determine the appropriate button based on the spaceship's current position
-                if (Vector2.Distance(transform.position, planet1.position) < 0.1f) // Close to Planet1
+                // Add button listeners for teleporting
+                goToPlanet1Button.onClick.AddListener(() =>
                 {
-                    goToPlanet1Button.gameObject.SetActive(false);
-                    goToMainPlanetButton.gameObject.SetActive(true);
-                    goToPlanet2Button.gameObject.SetActive(false);
-                }
-                else if (Vector2.Distance(transform.position, mainPlanet.position) < 0.1f) // Close to Main Planet
+                    RectTransform startPlanetImage = GetCurrentPlanetImage();
+                    StartCoroutine(TeleportWithAnimation(startPlanetImage, planet1Image, 1));
+                });
+
+                goToMainPlanetButton.onClick.AddListener(() =>
                 {
-                    goToPlanet1Button.gameObject.SetActive(true);
-                    goToMainPlanetButton.gameObject.SetActive(false);
-                    goToPlanet2Button.gameObject.SetActive(false);
-                }
-                else if (Vector2.Distance(transform.position, planet2.position) < 0.1f) // Close to Planet2
+                    RectTransform startPlanetImage = GetCurrentPlanetImage();
+                    StartCoroutine(TeleportWithAnimation(startPlanetImage, mainPlanetImage, 0));
+                });
+
+                goToPlanet2Button.onClick.AddListener(() =>
                 {
-                    goToPlanet1Button.gameObject.SetActive(false);
-                    goToMainPlanetButton.gameObject.SetActive(false);
-                    goToPlanet2Button.gameObject.SetActive(true);
-                }
+                    RectTransform startPlanetImage = GetCurrentPlanetImage();
+                    StartCoroutine(TeleportWithAnimation(startPlanetImage, planet2Image, 2));
+                });
             }
         }
     }
+
+    private RectTransform GetCurrentPlanetImage()
+    {
+        if (CurrentPlanet == 0)
+        {
+            return mainPlanetImage;
+        }
+        else if (CurrentPlanet == 1)
+        {
+            return planet1Image;
+        }
+        else if (CurrentPlanet == 2)
+        {
+            return planet2Image;
+        }
+
+        return mainPlanetImage; // Default fallback
+    }
+
+
+    private IEnumerator TeleportWithAnimation(RectTransform startPlanet, RectTransform targetPlanet, int targetPlanetIndex)
+    {
+        teleportanimationPanel.SetActive(true);
+        spaceshipImage.rectTransform.anchoredPosition = startPlanet.anchoredPosition;
+
+        // Animate spaceship movement
+        spaceshipImage.rectTransform
+            .DOAnchorPos(targetPlanet.anchoredPosition, animationDuration)
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                teleportanimationPanel.SetActive(false);
+                CompleteTeleportation(targetPlanetIndex);
+            });
+
+        yield return new WaitForSeconds(animationDuration);
+    }
+
+    private void CompleteTeleportation(int targetPlanetIndex)
+    {
+        // Handle teleportation based on the target planet index
+        Transform targetPlanet = null;
+
+        if (targetPlanetIndex == 0)
+        {
+            targetPlanet = mainPlanet;
+            CurrentPlanet = 0;
+            myCamera.GetComponent<cameraController>().planetnb = 0;
+        }
+        else if (targetPlanetIndex == 1)
+        {
+            targetPlanet = planet1;
+            CurrentPlanet = 1;
+            myCamera.GetComponent<cameraController>().planetnb = 1;
+        }
+        else if (targetPlanetIndex == 2)
+        {
+            targetPlanet = planet2;
+            CurrentPlanet = 2;
+            myCamera.GetComponent<cameraController>().planetnb = 2;
+        }
+
+        if (targetPlanet != null)
+        {
+            // Move the player to the target planet
+            myCharacter.transform.position = new Vector3(targetPlanet.position.x, targetPlanet.position.y, 0);
+
+            // Ensure the camera is positioned correctly
+            myCamera.transform.position = new Vector3(targetPlanet.position.x, targetPlanet.position.y, myCamera.transform.position.z);
+        }
+
+        // Hide the teleport animation panel if it's still visible
+        teleportanimationPanel.SetActive(false);
+    }
+
 
     public void SetCameraPlanet(int planetNumber)
     {

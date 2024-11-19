@@ -21,6 +21,12 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private Queue<string> playerLinesQueue; // Queue to hold player lines
 
+    private bool isDialogueActive = false; // Flag to track active dialogue state
+    private bool isTyping = false; // Flag to control typing state
+    public event System.Action OnDialogueEnd;
+    private bool isInputLocked = false;
+
+
     void Awake()
     {
         if (instance == null)
@@ -40,6 +46,12 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string[] npcLines, float textSpeed, string[] playerLines = null, string npcName = "")
     {
+        if (isDialogueActive || IsInputLocked()) return; // Prevent restarting dialogue
+
+
+        LockInput();
+        isDialogueActive = true;
+
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -72,14 +84,20 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string line in lines)
         {
-            npcTextComponent.text = string.Empty;
-            PlayAlienSound(); // Play alien sound when NPC starts a line
+            if (isTyping) yield break; // Prevent overlapping typing
 
-            foreach (char c in line.ToCharArray())
+            isTyping = true; // Set typing flag
+            npcTextComponent.text = string.Empty;
+            PlayAlienSound();
+
+            foreach (char c in line)
             {
                 npcTextComponent.text += c;
                 yield return new WaitForSeconds(textSpeed);
             }
+
+            isTyping = false; // Reset typing flag
+
             // Wait for user input before moving to the next line
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
@@ -141,6 +159,25 @@ public class DialogueManager : MonoBehaviour
         {
             playerMovement.EnableMovement();
         }
+
+        isDialogueActive = false;
+        UnlockInput();
+        OnDialogueEnd?.Invoke();
+    }
+
+    private void LockInput()
+    {
+        isInputLocked = true;
+    }
+
+    private void UnlockInput()
+    {
+        isInputLocked = false;
+    }
+
+    public bool IsInputLocked()
+    {
+        return isInputLocked;
     }
 
     private void PlayAlienSound()
