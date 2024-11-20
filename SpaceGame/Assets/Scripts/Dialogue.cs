@@ -8,6 +8,8 @@ public class Dialogue : MonoBehaviour
     public GameObject turnipImage;
     public GameObject presidentImage;
     public GameObject pigImage;
+    public GameObject mamaImage;
+    public GameObject papaImage;
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
 
@@ -60,6 +62,10 @@ public class Dialogue : MonoBehaviour
                 {
                     npcName = "Piggy";
                 }
+                else if (gameObject.name == "MamaGolem")
+                {
+                    npcName = "Mama Golem";
+                }
                 else
                 {
                     npcName = "Unknown NPC"; // Fallback name
@@ -96,6 +102,14 @@ public class Dialogue : MonoBehaviour
         else if (gameObject.name == "Pig" && pigImage != null)
         {
             pigImage.SetActive(true);
+        }
+        else if (gameObject.name == "MamaGolem" && mamaImage != null)
+        {
+            mamaImage.SetActive(true);
+        }
+        else if (gameObject.name == "PapaGolem" && papaImage != null)
+        {
+            papaImage.SetActive(true);
         }
     }
 

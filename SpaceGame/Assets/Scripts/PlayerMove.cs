@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float iceFriction = 0.98f; // Friction factor for ice, closer to 1 means more sliding
 
     private bool isOnIce = false;
+    private bool onIce = false;
 
     float horizontalMovement;
 
@@ -63,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Target Area")]
-    public Vector2 bottomLeftCorner = new Vector2(132.5319f, 20f);
-    public Vector2 topRightCorner = new Vector2(190f, 77f); 
-
+    public Vector2 bottomLeftCorner = new Vector2(132.5747f, 20f);
+    public Vector2 topRightCorner = new Vector2(190f, 77f);
+  
     private bool isInTargetArea = false;
 
     private float materialChangeCooldown = 0.1f; 
@@ -76,15 +77,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (spotlight != null)
         {
-            spotlight.enabled = false;
+            spotlight.enabled = true;
         }
 
         if (spriteRenderer != null && defaultMaterial != null)
         {
             spriteRenderer.material = defaultMaterial;
         }
-
-        
 
     }
 
@@ -95,25 +94,37 @@ public class PlayerMovement : MonoBehaviour
         ProcessWallSlide();
         ProcessWallJump();
 
-        if (!isWallJumping && canMove && !isSliding) //added && canMove
+        if (!isWallJumping && canMove && !isSliding)
         {
-            rb.velocity = new Vector2(horizontalMovement * (moveSpeed), rb.velocity.y); //move
+            rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y); // move
             Flip();
         }
-        
 
-        animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetFloat("magnitude", rb.velocity.magnitude);
+        // Adjusted to avoid flickering between animations
+        float velocityMagnitude = rb.velocity.magnitude;
+        if (velocityMagnitude < 0.01f)
+        {
+            velocityMagnitude = 0f;
+        }
+        animator.SetFloat("magnitude", velocityMagnitude);
+
+        float yVelocity = rb.velocity.y;
+
+        // Apply a threshold to treat small yVelocity as grounded
+        if (isGrounded && Mathf.Abs(yVelocity) < 0.1f)
+        {
+            yVelocity = 0f;
+        }
+
+        animator.SetFloat("yVelocity", yVelocity);
+
         animator.SetBool("isWallSliding", isWallSliding);
 
         CheckTargetArea();
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ToggleSpotlight();
-        }
-
     }
+
+
 
 
     private void FixedUpdate()
@@ -122,10 +133,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnIce)
             {
-                // Apply sliding behavior on ice
+                
                 rb.velocity = new Vector2(rb.velocity.x * iceFriction, rb.velocity.y);
 
-                // If there is player input, apply some control over the sliding
                 if (Mathf.Abs(horizontalMovement) > 0.01f)
                 {
                     rb.AddForce(new Vector2(horizontalMovement * moveSpeed, 0), ForceMode2D.Force);
@@ -133,32 +143,78 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                // Normal movement
+               
                 rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
             }
         }
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Ice"))
+     {
+         if (collision.collider.CompareTag("Ice"))
+         {
+             isOnIce = true;
+             Debug.Log("Player is on ice");
+             moveSpeed *= 2f;
+           
+         }
+
+        if (collision.collider.CompareTag("water"))
         {
-            isOnIce = true;
-            Debug.Log("Player is on ice");
+            
+            Debug.Log("Player is in water");
+            moveSpeed /= 2f;
+            jumpsRemaining = 0;
+
+        }
+
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Slide"))
+        {
+            Vector2 surfaceNormal = collision.contacts[0].normal;
+            float rampAngle = Vector2.Angle(surfaceNormal, Vector2.up);
+
+            if (rampAngle > 30f) // Steep ramp
+            {
+                canMove = false;
+                rb.gravityScale = baseGravity * 2f; // Increase gravity
+                rb.AddForce(Vector2.down * 5f, ForceMode2D.Force); // Sliding force
+            }
+            else
+            {
+                canMove = true; // Allow movement on shallow ramps
+                rb.gravityScale = baseGravity;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("Slide"))
+        {
+            rb.gravityScale = baseGravity; 
+            canMove = true; 
+        }
+
         if (collision.collider.CompareTag("Ice"))
         {
             isOnIce = false;
+            moveSpeed /= 2f;
+            
+        }
+        if (collision.collider.CompareTag("water"))
+        {
+            isOnIce = false;
+            moveSpeed *= 2f;
+            jumpsRemaining = 2;
+
         }
     }
-
-
-
-
 
 
 
@@ -168,18 +224,18 @@ public class PlayerMovement : MonoBehaviour
 
         float buffer = 0.5f;
 
-        bool isInArea = playerPosition.x >= bottomLeftCorner.x - buffer && playerPosition.x <= topRightCorner.x + buffer &&
+        bool isInArea1 = playerPosition.x >= bottomLeftCorner.x - buffer && playerPosition.x <= topRightCorner.x + buffer &&
                         playerPosition.y >= bottomLeftCorner.y - buffer && playerPosition.y <= topRightCorner.y + buffer;
 
         if (Time.time - lastMaterialChangeTime >= materialChangeCooldown)
         {
-            if (isInArea && !isInTargetArea)
+            if (isInArea1 && !isInTargetArea)
             {                
                 isInTargetArea = true;
                 ChangeMaterial(spriteLitMaterial);
                 lastMaterialChangeTime = Time.time;
             }
-            else if (!isInArea && isInTargetArea)
+            else if (!isInArea1 && isInTargetArea)
             {
                 isInTargetArea = false;
                 ChangeMaterial(defaultMaterial);
@@ -197,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ToggleSpotlight()
+  /*  private void ToggleSpotlight()
     {
         if (spotlight != null)
         {
@@ -205,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
             spotlight.enabled = isSpotlightOn;
 
         }
-    }
+    }*/
 
     public void StartSliding()
     {
