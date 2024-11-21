@@ -13,8 +13,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject playerPanel; // Panel to show when the player is speaking
     public TextMeshProUGUI npcNameTextComponent;
 
-    public AudioSource alienSound; // Audio source for the alien sound effect
-    public AudioSource playerSound; // Audio source for the player sound effect
+    public AudioSource alienSound; 
+    public AudioSource playerSound; 
 
     public PlayerMovement playerMovement; // Reference to PlayerMovement script
 
@@ -25,6 +25,9 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false; // Flag to control typing state
     public event System.Action OnDialogueEnd;
     private bool isInputLocked = false;
+
+ 
+
 
 
     void Awake()
@@ -48,7 +51,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (isDialogueActive || IsInputLocked()) return; // Prevent restarting dialogue
 
-
         LockInput();
         isDialogueActive = true;
 
@@ -63,6 +65,23 @@ public class DialogueManager : MonoBehaviour
             playerMovement.DisableMovement();
         }
 
+        // Skip NPC lines for "Turnip hat" and play only player lines
+        if (npcName == "Turnip hat")
+        {
+            npcNameTextComponent.text = ""; // No NPC name for Turnip hat
+            if (playerLines != null)
+            {
+                playerLinesQueue.Clear();
+                foreach (string line in playerLines)
+                {
+                    playerLinesQueue.Enqueue(line);
+                }
+            }
+            DisplayPlayerLines(); // Immediately start player lines
+            return;
+        }
+
+        // Regular dialogue behavior for other NPCs
         npcNameTextComponent.text = npcName;
         typingCoroutine = StartCoroutine(TypeLines(npcLines, textSpeed));
 
@@ -76,8 +95,16 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
     IEnumerator TypeLines(string[] lines, float textSpeed)
     {
+
+        if (gameObject.name == "Turnip hat")
+        {
+            dialoguePanel.SetActive(false);
+            DisplayPlayerLines();
+        }
+        else { 
         dialoguePanel.SetActive(true);
         npcTextComponent.text = string.Empty;
         playerPanel.SetActive(false); // Ensure player panel is hidden during NPC dialogue
@@ -103,6 +130,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayPlayerLines();
+        }
     }
 
     void DisplayPlayerLines()
@@ -202,5 +230,10 @@ public class DialogueManager : MonoBehaviour
             }
             playerSound.Play();
         }
+    }
+
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 }

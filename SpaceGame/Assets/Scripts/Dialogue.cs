@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     public GameObject pigImage;
     public GameObject mamaImage;
     public GameObject papaImage;
+    public GameObject npcDialoguePanel; // Reference to NPC dialogue panel
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
 
@@ -30,8 +31,6 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-
-
     private void OnMouseDown()
     {
         if (DialogueManager.instance == null || DialogueManager.instance.IsInputLocked()) return;
@@ -39,43 +38,23 @@ public class Dialogue : MonoBehaviour
         if (Time.time - lastInputTime < inputCooldown) return;
         lastInputTime = Time.time;
 
-        // Only trigger on mouse down for non-President NPCs
-        if (gameObject.name != "President")
+        // Special handling for "Turnip Hat"
+        if (gameObject.name == "Turnip hat")
         {
-
-            // Check if input is locked; if so, do nothing
-            if (DialogueManager.instance != null && DialogueManager.instance.IsInputLocked()) return;
-
-
-            // Assign default names based on GameObject name if not set
-            if (string.IsNullOrEmpty(npcName))
-            {
-                if (gameObject.name == "Mayor")
-                {
-                    npcName = "Mayor";
-                }
-                else if (gameObject.name == "Villager")
-                {
-                    npcName = "Villager";
-                }
-                else if (gameObject.name == "Pig")
-                {
-                    npcName = "Piggy";
-                }
-                else if (gameObject.name == "MamaGolem")
-                {
-                    npcName = "Mama Golem";
-                }
-                else
-                {
-                    npcName = "Unknown NPC"; // Fallback name
-                }
-            }
-
-            ShowRelevantImage();
             hasDialogueStarted = true;
             DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName);
+            return; // Exit after handling "Turnip Hat"
         }
+
+        // Regular dialogue behavior for other NPCs
+        if (string.IsNullOrEmpty(npcName))
+        {
+            AssignDefaultNPCName();
+        }
+
+        ShowRelevantImage();
+        hasDialogueStarted = true;
+        DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName);
     }
 
     void ShowRelevantImage()
@@ -87,11 +66,11 @@ public class Dialogue : MonoBehaviour
         if (pigImage != null) pigImage.SetActive(false);
 
         // Show the specific image for the NPC clicked
-        if (gameObject.name == "Mayor" && mayorImage != null)
+        if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor (1)" && mayorImage != null)
         {
             mayorImage.SetActive(true);
         }
-        else if (gameObject.name == "Villager" && turnipImage != null)
+        else if (gameObject.name == "Villager" && turnipImage != null || gameObject.name == "Villager (1)" && turnipImage != null)
         {
             turnipImage.SetActive(true);
         }
@@ -99,18 +78,52 @@ public class Dialogue : MonoBehaviour
         {
             presidentImage.SetActive(true);
         }
-        else if (gameObject.name == "Pig" && pigImage != null)
+        else if (gameObject.name == "Pig" && pigImage != null || gameObject.name == "Pig (1)" && pigImage != null)
         {
             pigImage.SetActive(true);
         }
-        else if (gameObject.name == "MamaGolem" && mamaImage != null)
+        else if (gameObject.name == "MamaGolem" && mamaImage != null || gameObject.name == "MamaGolem (1)" && mamaImage != null)
         {
             mamaImage.SetActive(true);
         }
-        else if (gameObject.name == "PapaGolem" && papaImage != null)
+
+        else if (gameObject.name == "PapaGolem" && mamaImage != null || gameObject.name == "PapaGolem (1)" && papaImage != null)
         {
             papaImage.SetActive(true);
         }
+
     }
 
+    void AssignDefaultNPCName()
+    {
+        if (gameObject.name == "Mayor")
+        {
+            npcName = "Mayor";
+        }
+        else if (gameObject.name == "Villager")
+        {
+            npcName = "Turnip";
+        }
+        else if (gameObject.name == "Pig")
+        {
+            npcName = "Piggy";
+        }
+        else if (gameObject.name == "MamaGolem")
+        {
+            npcName = "Mama Golem";
+        }
+
+        else if (gameObject.name == "PapaGolem")
+        {
+            npcName = "Papa Golem";
+        }
+        else if (gameObject.name == "Turnip hat")
+        {
+            npcName = "hat";
+        }
+        else
+        {
+            npcName = "Unknown NPC"; // Fallback name
+        }
+    }
 }

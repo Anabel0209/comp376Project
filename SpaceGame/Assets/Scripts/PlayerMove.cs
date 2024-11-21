@@ -442,8 +442,15 @@ public class PlayerMovement : MonoBehaviour
     {
         
         horizontalMovement = 0;
+        rb.velocity = Vector2.zero;
         canMove = false;
         enabled = false;
+
+        if (animator!=null)
+        {
+            animator.SetFloat("magnitude", 0f);
+            animator.SetBool("isWalking", false);
+        }
     }
 
     public void EnableMovement()
