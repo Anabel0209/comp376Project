@@ -27,7 +27,7 @@ public class MidPointTrigger : MonoBehaviour
                 Debug.Log("in trigger");
                 
                 //decrement the nb of items
-                player.gameObject.GetComponent<ItemCollectionManager>().DecrementCount(priceToContinue);
+                //player.gameObject.GetComponent<ItemCollectionManager>().DecrementCount(priceToContinue);
 
                 if(planetNb == 1)
                 {

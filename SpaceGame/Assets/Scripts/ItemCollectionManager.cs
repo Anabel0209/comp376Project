@@ -41,7 +41,8 @@ public class ItemCollectionManager : MonoBehaviour
     {
         if (count >= amountToDecrement)
         {
-            count = count - amountToDecrement;
+            return;
+           // count = count - amountToDecrement;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

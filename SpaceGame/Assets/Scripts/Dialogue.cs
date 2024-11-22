@@ -87,7 +87,7 @@ public class Dialogue : MonoBehaviour
             mamaImage.SetActive(true);
         }
 
-        else if (gameObject.name == "PapaGolem" && mamaImage != null || gameObject.name == "PapaGolem (1)" && papaImage != null)
+        else if (gameObject.name == "PapaGolem" && papaImage != null || gameObject.name == "PapaGolem (1)" && papaImage != null)
         {
             papaImage.SetActive(true);
         }
