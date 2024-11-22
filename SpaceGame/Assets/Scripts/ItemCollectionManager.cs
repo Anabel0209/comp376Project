@@ -14,7 +14,9 @@ public class ItemCollectionManager : MonoBehaviour
     public GameObject itemCollectionDisplay;
     public GameObject inGameImageOfItem;
     private bool hasReachedGoal;
+    public AudioSource coinSound;
 
+    
 
 
     private void Update()
@@ -49,6 +51,8 @@ public class ItemCollectionManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collectible"))
         {
+            //coinSound = collision.gameObject.GetComponent<AudioSource>();
+            coinSound.Play();
             count++;
             Destroy(collision.gameObject);
 

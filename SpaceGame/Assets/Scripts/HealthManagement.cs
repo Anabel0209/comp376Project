@@ -8,9 +8,11 @@ public class HealthManagement : MonoBehaviour
 {
     private int maxHealth = 5;
     public int healthPoints = 5;
+    float timeInBetweenDamageLava = 2.0f;
     float damageTimer = 0f;
-    float timeInBetweenDamage = 2.0f;
+    float timeInBetweenDamageWater = 1.5f;
     bool inLava = false;
+    bool inWater = false;
     public Transform respawnLocation;
     Camera myCamera;
 
@@ -36,7 +38,18 @@ public class HealthManagement : MonoBehaviour
         if (inLava)
         {
             damageTimer += Time.deltaTime;
-            if (damageTimer >= timeInBetweenDamage)
+            if (damageTimer >= timeInBetweenDamageLava)
+            {
+                TakeDamage(1);
+                damageTimer = 0f;
+                Debug.Log(healthPoints);
+            }
+        }
+        //take damage every 2 seconds while in water
+        if(inWater)
+        {
+            damageTimer += Time.deltaTime;
+            if (damageTimer >= timeInBetweenDamageWater)
             {
                 TakeDamage(1);
                 damageTimer = 0f;
@@ -97,6 +110,11 @@ public class HealthManagement : MonoBehaviour
             inLava = true;
 
         }
+        if(collision.collider.CompareTag("water"))
+        {
+            Debug.Log("Collided with Water");
+            inWater = true;
+        }
         if(collision.collider.CompareTag("VerticalSpike"))
         {
             gameObject.GetComponent<PlayerMovement>().canMove = false;
@@ -131,6 +149,10 @@ public class HealthManagement : MonoBehaviour
         if (collision.collider.CompareTag("Lava"))
         {
             inLava = false;
+        }
+        if(collision.collider.CompareTag("water"))
+        {
+            inWater = false;
         }
     }
     private void Respawn()
