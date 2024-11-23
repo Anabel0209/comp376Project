@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     public GameObject pigImage;
     public GameObject mamaImage;
     public GameObject papaImage;
+    public GameObject yellowTurnipImage;
     public GameObject npcDialoguePanel; // Reference to NPC dialogue panel
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
@@ -64,17 +65,24 @@ public class Dialogue : MonoBehaviour
         if (turnipImage != null) turnipImage.SetActive(false);
         if (presidentImage != null) presidentImage.SetActive(false);
         if (pigImage != null) pigImage.SetActive(false);
+        if (mamaImage != null) mamaImage.SetActive(false);
+        if (papaImage != null) papaImage.SetActive(false);
+        if (yellowTurnipImage != null) papaImage.SetActive(false);
 
         // Show the specific image for the NPC clicked
         if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor (1)" && mayorImage != null)
         {
             mayorImage.SetActive(true);
         }
+        else if (gameObject.name == "YellowTurnip" && yellowTurnipImage != null || gameObject.name == "YellowTurnip (1)" && yellowTurnipImage != null)
+        {
+            yellowTurnipImage.SetActive(true);
+        }
         else if (gameObject.name == "Villager" && turnipImage != null || gameObject.name == "Villager (1)" && turnipImage != null)
         {
             turnipImage.SetActive(true);
         }
-        else if (gameObject.name == "President" && presidentImage != null)
+        else if (gameObject.name == "President" && presidentImage != null )
         {
             presidentImage.SetActive(true);
         }
@@ -120,6 +128,10 @@ public class Dialogue : MonoBehaviour
         else if (gameObject.name == "Turnip hat")
         {
             npcName = "hat";
+        }
+        else if (gameObject.name == "YellowTurnip")
+        {
+            npcName = "Chomp";
         }
         else
         {

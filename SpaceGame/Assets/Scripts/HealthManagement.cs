@@ -14,6 +14,7 @@ public class HealthManagement : MonoBehaviour
     bool inLava = false;
     bool inWater = false;
     public Transform respawnLocation;
+    public AudioSource hurtSound;
     Camera myCamera;
 
     //ui heart
@@ -65,6 +66,9 @@ public class HealthManagement : MonoBehaviour
     //method to call when the player takes damage
     private void TakeDamage(int damage)
     {
+        //play hurt sound
+        hurtSound.Play();
+
         if (healthPoints > 0)
         {
             Debug.Log("TakeDamage method called, triggering animation.");
