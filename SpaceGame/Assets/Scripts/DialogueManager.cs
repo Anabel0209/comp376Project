@@ -13,7 +13,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject playerPanel; // Panel to show when the player is speaking
     public TextMeshProUGUI npcNameTextComponent;
 
-    public AudioSource alienSound; 
+    private NPCExclamationMark currentNpcExclamation;
+
+
     public AudioSource playerSound; 
 
     public PlayerMovement playerMovement; // Reference to PlayerMovement script
@@ -47,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         playerPanel.SetActive(false);
     }
 
-    public void StartDialogue(string[] npcLines, float textSpeed, string[] playerLines = null, string npcName = "")
+    public void StartDialogue(string[] npcLines, float textSpeed, string[] playerLines = null, string npcName = "", AudioSource npcAudioSource = null)
     {
         if (isDialogueActive || IsInputLocked()) return; // Prevent restarting dialogue
 
@@ -59,11 +61,24 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
 
+
+        // Stop exclamation mark flashing on the NPC
+        currentNpcExclamation = FindObjectOfType<NPCExclamationMark>(); // Assign the active NPC's exclamation mark
+        if (currentNpcExclamation != null)
+        {
+            currentNpcExclamation.StopFlashing();
+        }
+
+
         // Disable player movement at the start of dialogue
         if (playerMovement != null)
         {
             playerMovement.DisableMovement();
         }
+
+        // Play the NPC-specific sound
+        PlayNpcSound(npcAudioSource);
+
 
         // Skip NPC lines for "Turnip hat" and play only player lines
         if (npcName == "Turnip hat")
@@ -95,6 +110,18 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void PlayNpcSound(AudioSource npcAudioSource)
+    {
+        if (npcAudioSource != null)
+        {
+            if (npcAudioSource.isPlaying)
+            {
+                npcAudioSource.Stop(); // Stop any current sound
+            }
+            npcAudioSource.Play(); // Play the new sound
+        }
+    }
+
 
     IEnumerator TypeLines(string[] lines, float textSpeed)
     {
@@ -115,7 +142,7 @@ public class DialogueManager : MonoBehaviour
 
             isTyping = true; // Set typing flag
             npcTextComponent.text = string.Empty;
-            PlayAlienSound();
+            
 
             foreach (char c in line)
             {
@@ -182,6 +209,14 @@ public class DialogueManager : MonoBehaviour
         npcTextComponent.text = string.Empty;
         playerTextComponent.text = string.Empty;
 
+        // Stop exclamation mark flashing for the current NPC
+        if (currentNpcExclamation != null)
+        {
+            currentNpcExclamation.StopFlashing();
+            currentNpcExclamation = null; // Clear the reference after stopping
+        }
+
+
         // Enable player movement after the dialogue ends
         if (playerMovement != null)
         {
@@ -208,17 +243,7 @@ public class DialogueManager : MonoBehaviour
         return isInputLocked;
     }
 
-    private void PlayAlienSound()
-    {
-        if (alienSound != null)
-        {
-            if (alienSound.isPlaying)
-            {
-                alienSound.Stop(); // Stop the current sound if it's playing
-            }
-            alienSound.Play();
-        }
-    }
+   
 
     private void PlayPlayerSound()
     {

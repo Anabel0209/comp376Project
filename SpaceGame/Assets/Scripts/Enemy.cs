@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float bounceForce = 5f; // Force applied to the player when they defeat an enemy
     public float knockbackForce = 5f; // Force applied to the player when hit by an enemy
     public float knockbackDuration = 0.5f; // Duration of knockback effect
+    public AudioSource deathSound; // AudioSource for the death sound
 
     private Vector2 startingPosition;
     private bool movingRight = true;
@@ -23,6 +24,12 @@ public class Enemy : MonoBehaviour
         }
         rb.gravityScale = 1; // Set a gravity scale (adjust as needed)
         rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent the enemy from rotating
+
+        if (deathSound == null)
+        {
+            Debug.LogWarning("Death sound is not assigned to the Enemy.");
+        }
+
     }
 
     private void Update()
@@ -62,6 +69,7 @@ public class Enemy : MonoBehaviour
             {
                 // Player jumps on top of the enemy
                 playerRb.velocity = new Vector2(playerRb.velocity.x, bounceForce);
+                PlayDeathSound();
                 Destroy(gameObject);
             }
             else if (playerMovement != null && playerHealth != null && playerMovement.canMove)
@@ -90,4 +98,13 @@ public class Enemy : MonoBehaviour
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
+
+    private void PlayDeathSound()
+    {
+        if (deathSound != null)
+        {
+            deathSound.Play(); // Play the death sound
+        }
+    }
+
 }

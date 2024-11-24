@@ -14,6 +14,7 @@ public class Dialogue : MonoBehaviour
     public GameObject npcDialoguePanel; // Reference to NPC dialogue panel
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
+    public AudioSource npcAudioSource; // New field for NPC-specific sound
 
     private float lastInputTime = 0f;
     private float inputCooldown = 2f;
@@ -28,7 +29,7 @@ public class Dialogue : MonoBehaviour
             // Set the NPC name
             npcName = "President";
             hasDialogueStarted = true;
-            DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName);
+            DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName, npcAudioSource);
         }
     }
 
@@ -43,7 +44,7 @@ public class Dialogue : MonoBehaviour
         if (gameObject.name == "Turnip hat")
         {
             hasDialogueStarted = true;
-            DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName);
+            DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName, npcAudioSource);
             return; // Exit after handling "Turnip Hat"
         }
 
@@ -55,7 +56,7 @@ public class Dialogue : MonoBehaviour
 
         ShowRelevantImage();
         hasDialogueStarted = true;
-        DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName);
+        DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName, npcAudioSource);
     }
 
     void ShowRelevantImage()

@@ -6,25 +6,31 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;         // Reference to the Pause Menu panel
     public Button pauseButton;           // Reference to the Pause button
     public Button resumeButton;          // Reference to the Resume button
-    public Button mainPlanetButton;      // Reference to the Go to Main Planet button
-    public teleporter teleporterScript;  // Reference to the teleporter script to access teleport functions
+
+    private cameraController cameraControllerScript; // Reference to the cameraController script
 
     private bool isPaused = false;
 
     private void Start()
     {
+        // Find the cameraController script
+        cameraControllerScript = FindObjectOfType<cameraController>();
+        if (cameraControllerScript == null)
+        {
+            Debug.LogError("cameraController script is missing or not assigned!");
+            return;
+        }
+
         // Set up button listeners
-        pauseButton.onClick.AddListener(TogglePause);
-        resumeButton.onClick.AddListener(ResumeGame);
-        mainPlanetButton.onClick.AddListener(GoToMainPlanet);
+        if (pauseButton != null) pauseButton.onClick.AddListener(TogglePause);
+        if (resumeButton != null) resumeButton.onClick.AddListener(ResumeGame);
 
         // Ensure the pause menu is hidden initially
-        pauseMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
 
-        // Check the planet at the start
+        // Update the pause button visibility at the start
         UpdatePauseButtonVisibility();
     }
-
 
     private void Update()
     {
@@ -32,14 +38,17 @@ public class PauseMenu : MonoBehaviour
         UpdatePauseButtonVisibility();
     }
 
-
     private void UpdatePauseButtonVisibility()
     {
-        // Show the pause button only if the player is on Planet1
-        pauseButton.gameObject.SetActive(teleporterScript.CurrentPlanet == 1);
+        if (cameraControllerScript == null || pauseButton == null)
+        {
+            Debug.LogError("cameraController script or Pause button is not assigned!");
+            return;
+        }
+
+        // Show the pause button only if the player is not on Planet 0
+        pauseButton.gameObject.SetActive(cameraControllerScript.planetnb != 0);
     }
-
-
 
     private void TogglePause()
     {
@@ -48,13 +57,13 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
         {
             // Show the pause menu and pause the game
-            pauseMenu.SetActive(true);
+            if (pauseMenu != null) pauseMenu.SetActive(true);
             Time.timeScale = 0f; // Pause the game
         }
         else
         {
             // Hide the pause menu and resume the game
-            pauseMenu.SetActive(false);
+            if (pauseMenu != null) pauseMenu.SetActive(false);
             Time.timeScale = 1f; // Resume the game
         }
     }
@@ -62,29 +71,7 @@ public class PauseMenu : MonoBehaviour
     private void ResumeGame()
     {
         isPaused = false;
-        pauseMenu.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 1f; // Resume the game
     }
-
-    private void GoToMainPlanet()
-    {
-        // Teleport the player to the main planet and reset the Z position to 0
-        Vector3 mainPlanetPosition = teleporterScript.mainPlanet.position;
-        teleporterScript.myCharacter.transform.position = new Vector3(mainPlanetPosition.x, mainPlanetPosition.y, 0);
-
-        // Set the camera to focus on the main planet
-        teleporterScript.SetCameraPlanet(0);
-
-        // Update the current planet to 0 (main planet)
-        teleporterScript.SetCurrentPlanet(0);
-
-        // Update the pause button visibility to hide it on the main planet
-        UpdatePauseButtonVisibility();
-
-        // Resume the game
-        isPaused = false;
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
-    }
-
 }

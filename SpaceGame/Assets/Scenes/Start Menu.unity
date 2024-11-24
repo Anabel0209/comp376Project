@@ -2053,8 +2053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000026703, y: -230}
-  m_SizeDelta: {x: 901.3876, y: 421.893}
+  m_AnchoredPosition: {x: -0.000020027, y: -307.943}
+  m_SizeDelta: {x: 1060.9257, y: 577.779}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401269146
 MonoBehaviour:
@@ -2076,12 +2076,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'New TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew '
+  m_text: "Far away in the galaxy, a new planet \nhas been discovered: Revialis\nMysterious
+    and untouched, it hides secrets \nyet to be found.\n\nAs humanity\u2019s most
+    skilled pilot, your mission is \nto go into the unknown, face its challenges,
+    \nand find the truth.\nWith your courage and determination, you hold the key
+    \nto reveal what lies there.\n\nPrepare for this journey. The fate depends on
+    you!\n\nGame Made By: Andrada & Melanie & Anabel"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ba7bbf9eee803e4c90bf1cd6b3cae6d, type: 2}
   m_sharedMaterial: {fileID: -7004089241369243531, guid: 3ba7bbf9eee803e4c90bf1cd6b3cae6d, type: 2}
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -16,6 +16,8 @@ TagManager:
   - Slide
   - water
   - Ice
+  - BossTop
+  - BossBody
   layers:
   - Default
   - TransparentFX
@@ -26,8 +28,8 @@ TagManager:
   - Wall
   - NPC
   - Ice
-  - 
-  - 
+  - Boss
+  - Projectile
   - 
   - 
   - 

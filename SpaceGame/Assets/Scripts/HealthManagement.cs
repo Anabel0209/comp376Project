@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HealthManagement : MonoBehaviour
 {
@@ -10,10 +12,10 @@ public class HealthManagement : MonoBehaviour
     public int healthPoints = 5;
     float timeInBetweenDamageLava = 2.0f;
     float damageTimer = 0f;
-    float timeInBetweenDamageWater = 1.5f;
+    float timeInBetweenDamageWater = 2.5f;
     bool inLava = false;
     bool inWater = false;
-    public Transform respawnLocation;
+    
     public AudioSource hurtSound;
     Camera myCamera;
 
@@ -22,6 +24,20 @@ public class HealthManagement : MonoBehaviour
 
     public Animator animator;
 
+    private Vector3 bossAreaRespawnPosition = new Vector3(200, -33, 0); // Coordinates for respawning after boss death
+    private bool diedToBoss = false; // Flag to track if the player died due to the boss
+    private Vector2 bossAreaMin = new Vector2(205, -35); // Minimum bounds of the boss area
+    private Vector2 bossAreaMax = new Vector2(241, -25); // Maximum bounds of the boss area
+
+
+    // Death panel
+    public GameObject deathPanel;       // Panel that appears when the player dies
+    public Button respawnButton;       // Respawn button on the death panel
+    private int currentPlanet;         // Track the current planet the player is on
+   
+
+
+
     private void Awake()
     {
         myCamera = Camera.main;
@@ -29,6 +45,19 @@ public class HealthManagement : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
+        // Set up the respawn button listener
+        if (respawnButton != null)
+        {
+            respawnButton.onClick.AddListener(RespawnPlayer);
+        }
+
+        // Ensure the death panel is hidden initially
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(false);
+        }
+
     }
 
 
@@ -59,12 +88,12 @@ public class HealthManagement : MonoBehaviour
         }
         if(healthPoints == 0)
         {
-            Respawn();
+            TriggerDeath();
         }
 
     }
     //method to call when the player takes damage
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         //play hurt sound
         hurtSound.Play();
@@ -146,6 +175,7 @@ public class HealthManagement : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().StartSliding();
 
         }
+        
 
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -159,12 +189,97 @@ public class HealthManagement : MonoBehaviour
             inWater = false;
         }
     }
-    private void Respawn()
+
+
+    // Trigger the death sequence
+    private void TriggerDeath()
     {
-        myCamera.GetComponent<cameraController>().planetnb = 0;
-        transform.position = new Vector2(respawnLocation.position.x, respawnLocation.position.y);
-        GainHealth(maxHealth);
+        // Stop player movement and show the death panel
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(true);
+        }
+
+        // Pause the game
+        Time.timeScale = 0f;
+
+        // Save the current planet the player died on
+        currentPlanet = (int)myCamera.GetComponent<cameraController>().planetnb;
+        Debug.Log("Player died on planet: " + currentPlanet);
+
+
+
+
     }
+
+    private void RespawnPlayer()
+    {
+        GetComponent<PlayerMovement>().enabled = false; // Disable movement temporarily
+
+        if (deathPanel != null)
+        {
+            deathPanel.SetActive(false);
+        }
+
+        // Get the current planet from the cameraController
+        
+        Vector3 respawnPosition;
+
+        // Check if the player died in the boss area
+        if (transform.position.x >= bossAreaMin.x && transform.position.x <= bossAreaMax.x &&
+            transform.position.y >= bossAreaMin.y && transform.position.y <= bossAreaMax.y)
+        {
+            Debug.Log("Player died in boss area. Respawning at boss area coordinates.");
+            respawnPosition = bossAreaRespawnPosition;
+        }
+
+
+        else
+        {
+            float currentPlanet = myCamera.GetComponent<cameraController>().planetnb;
+
+            // Check which planet the player is on and set the respawn location
+            if (currentPlanet == 0) // Main Planet
+            {
+                Debug.Log("Respawning on Main Planet");
+                respawnPosition = GameObject.Find("main planet").transform.position;
+            }
+            else if (currentPlanet == 1) // Planet 1
+            {
+                Debug.Log("Respawning on Planet 1");
+                respawnPosition = GameObject.Find("planet 1").transform.position;
+            }
+            else if (currentPlanet == 2) // Planet 2
+            {
+                Debug.Log("Respawning on Planet 2");
+                respawnPosition = GameObject.Find("planet 2").transform.position;
+            }
+            else
+            {
+                Debug.LogWarning("Invalid planet index. Respawning at Main Planet as fallback.");
+                respawnPosition = GameObject.Find("main planet").transform.position;
+            }
+        }
+        
+
+        // Ensure the correct z position
+        respawnPosition.z = 0f; // Set the player's z position to 0 (or the desired value)
+        transform.position = respawnPosition;
+
+        // Restore health and re-enable movement
+        GainHealth(maxHealth);
+        Time.timeScale = 1f;
+
+        GetComponent<PlayerMovement>().enabled = true; // Re-enable movement
+    }
+
+
+
+
+
+
+
+
     public void ResetTakeDamage()
     {
         if (animator != null)

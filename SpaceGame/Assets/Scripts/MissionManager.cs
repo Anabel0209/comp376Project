@@ -11,12 +11,15 @@ public class MissionManager : MonoBehaviour
     private CanvasGroup fadeCanvasGroup;
 
 
+    public AudioSource backgroundMusic; // AudioSource for background music
+
     private float lastClickTime = 0f;
     private float clickDelay = 2f;
 
-    public DialogueManager dialogueManager; // Reference to the DialogueManager for starting the President's dialogue
+    private PresidentDialogueManager dialogueManager;
+    private PresidentDialogue presidentDialogue;
 
-    private Dialogue presidentDialogue; // Reference to the President's Dialogue component
+
     private bool hasDialogueStarted = false; // Flag to ensure dialogue starts once
     private bool hasDialogueEnded = false;
 
@@ -24,12 +27,29 @@ public class MissionManager : MonoBehaviour
 
     void Start()
     {
+
+        // Start the background music
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.loop = true; // Ensure the music loops
+            backgroundMusic.Play();
+        }
+
+        // Find the President's Dialogue component
+        dialogueManager = FindObjectOfType<PresidentDialogueManager>();
+        if (dialogueManager == null)
+        {
+            Debug.LogError("PresidentDialogueManager not found in the scene!");
+            return;
+        }
+
         // Find the President's Dialogue component
         GameObject presidentGameObject = GameObject.Find("President");
         if (presidentGameObject != null)
         {
-            presidentDialogue = presidentGameObject.GetComponent<Dialogue>();
+            presidentDialogue = presidentGameObject.GetComponent<PresidentDialogue>();
         }
+
 
         // Initialize and hide the Land button
         if (landButton != null)
@@ -43,6 +63,11 @@ public class MissionManager : MonoBehaviour
         {
             StartCoroutine(FadeInAndStartDialogue());
         }
+
+
+        // Subscribe to the dialogue end event
+        dialogueManager.OnDialogueEnd += OnDialogueEnd;
+
     }
 
     
@@ -87,9 +112,9 @@ public class MissionManager : MonoBehaviour
         }
 
         // Listen for the completion of the dialogue
-        if (DialogueManager.instance != null)
+        if (PresidentDialogueManager.instance != null)
         {
-            DialogueManager.instance.OnDialogueEnd += OnDialogueEnd;
+            PresidentDialogueManager.instance.OnDialogueEnd += OnDialogueEnd;
         }
     }
 
@@ -112,9 +137,9 @@ public class MissionManager : MonoBehaviour
     private void OnDestroy()
     {
         // Unsubscribe from the dialogue end event to avoid memory leaks
-        if (DialogueManager.instance != null)
+        if (dialogueManager != null)
         {
-            DialogueManager.instance.OnDialogueEnd -= OnDialogueEnd;
+            dialogueManager.OnDialogueEnd -= OnDialogueEnd;
         }
     }
 }
