@@ -29,6 +29,11 @@ public class HealthManagement : MonoBehaviour
     private Vector2 bossAreaMin = new Vector2(205, -35); // Minimum bounds of the boss area
     private Vector2 bossAreaMax = new Vector2(241, -25); // Maximum bounds of the boss area
 
+    private bool checkpointActivated = false; // Flag for checkpoint activation
+    private Vector3 planet2SpawnPosition; // Default spawn position for Planet 2
+    private Vector3 checkpointPosition; // The position of the active checkpoint
+
+
 
     // Death panel
     public GameObject deathPanel;       // Panel that appears when the player dies
@@ -58,6 +63,20 @@ public class HealthManagement : MonoBehaviour
             deathPanel.SetActive(false);
         }
 
+        // Set the default spawn position for Planet 2 (adjust coordinates as needed)
+        planet2SpawnPosition = GameObject.Find("planet 2").transform.position;
+
+        // Initialize checkpoint position to default Planet 2 spawn
+        checkpointPosition = planet2SpawnPosition;
+
+    }
+
+
+    public void SetCheckpoint(Vector3 newCheckpoint)
+    {
+        checkpointPosition = newCheckpoint; // Update checkpoint position
+        checkpointActivated = true;        // Activate checkpoint logic
+        Debug.Log("Checkpoint set at: " + checkpointPosition);
     }
 
 
@@ -222,7 +241,7 @@ public class HealthManagement : MonoBehaviour
         }
 
         // Get the current planet from the cameraController
-        
+        float currentPlanet = myCamera.GetComponent<cameraController>().planetnb;
         Vector3 respawnPosition;
 
         // Check if the player died in the boss area
@@ -232,35 +251,35 @@ public class HealthManagement : MonoBehaviour
             Debug.Log("Player died in boss area. Respawning at boss area coordinates.");
             respawnPosition = bossAreaRespawnPosition;
         }
-
-
-        else
+        else if (currentPlanet == 2) // Planet 2 logic
         {
-            float currentPlanet = myCamera.GetComponent<cameraController>().planetnb;
-
-            // Check which planet the player is on and set the respawn location
-            if (currentPlanet == 0) // Main Planet
+            if (checkpointActivated && transform.position.x >= checkpointPosition.x)
             {
-                Debug.Log("Respawning on Main Planet");
-                respawnPosition = GameObject.Find("main planet").transform.position;
-            }
-            else if (currentPlanet == 1) // Planet 1
-            {
-                Debug.Log("Respawning on Planet 1");
-                respawnPosition = GameObject.Find("planet 1").transform.position;
-            }
-            else if (currentPlanet == 2) // Planet 2
-            {
-                Debug.Log("Respawning on Planet 2");
-                respawnPosition = GameObject.Find("planet 2").transform.position;
+                Debug.Log("Respawning at Planet 2's checkpoint.");
+                respawnPosition = checkpointPosition; // Respawn at checkpoint
             }
             else
             {
-                Debug.LogWarning("Invalid planet index. Respawning at Main Planet as fallback.");
-                respawnPosition = GameObject.Find("main planet").transform.position;
+                Debug.Log("Respawning at Planet 2's default spawn.");
+                respawnPosition = planet2SpawnPosition; // Default spawn for Planet 2
             }
         }
-        
+        else if (currentPlanet == 1) // Planet 1 logic
+        {
+            Debug.Log("Respawning at Planet 1's default spawn.");
+            respawnPosition = GameObject.Find("planet 1").transform.position; // Default spawn for Planet 1
+        }
+        else if (currentPlanet == 0) // Main Planet logic
+        {
+            Debug.Log("Respawning at Main Planet's default spawn.");
+            respawnPosition = GameObject.Find("main planet").transform.position; // Default spawn for Main Planet
+        }
+        else
+        {
+            Debug.LogWarning("Invalid planet index. Respawning at Main Planet as fallback.");
+            respawnPosition = GameObject.Find("main planet").transform.position; // Fallback to Main Planet spawn
+        }
+
 
         // Ensure the correct z position
         respawnPosition.z = 0f; // Set the player's z position to 0 (or the desired value)

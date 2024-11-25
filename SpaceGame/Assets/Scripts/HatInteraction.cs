@@ -59,6 +59,13 @@ public class HatInteraction : MonoBehaviour
         if (newMayor != null) newMayor.SetActive(true);
         if (newPiggy != null) newPiggy.SetActive(true);
         if (newHat != null) newHat.SetActive(true);
+
+        // Unlock Planet 2 in the teleporter
+        teleporter teleportScript = FindObjectOfType<teleporter>();
+        if (teleportScript != null)
+        {
+            teleportScript.UnlockPlanet2();
+        }
     }
 
 }

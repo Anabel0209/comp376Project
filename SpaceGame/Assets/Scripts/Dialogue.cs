@@ -15,6 +15,8 @@ public class Dialogue : MonoBehaviour
     public string npcName; // New field for NPC name
     public string[] playerLines; // New field for player lines
     public AudioSource npcAudioSource; // New field for NPC-specific sound
+    public GameObject gem; // Drag "gem_end" into this field in the Inspector
+
 
     private float lastInputTime = 0f;
     private float inputCooldown = 2f;
@@ -45,13 +47,17 @@ public class Dialogue : MonoBehaviour
             }
         }
 
-        if (gameObject.name == "Mayor_end") 
+        if (gameObject.name == "Mayor_end" && gem != null)
         {
-            GameObject gem = GameObject.Find("gem_end");
             gem.SetActive(true);
         }
-        
-           
+
+        if (gameObject.name == "YellowTurnip")
+        {
+            // Set checkpoint at YellowTurnip's position
+            FindObjectOfType<HealthManagement>().SetCheckpoint(transform.position);
+        }
+
 
         if (DialogueManager.instance == null || DialogueManager.instance.IsInputLocked()) return;
 

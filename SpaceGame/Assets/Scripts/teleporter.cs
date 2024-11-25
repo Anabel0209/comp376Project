@@ -26,12 +26,14 @@ public class teleporter : MonoBehaviour
     public Button goToPlanet1Button;
     public Button goToMainPlanetButton;
     public Button goToPlanet2Button;
+    public GameObject planet2Text;
 
 
     public float interactionRadius = 5f; // Radius within which the player can interact
 
     private bool isTeleporting = false;
     private bool panelIsOpen = false; // Add this line to declare panelIsOpen
+    private bool hasInteractedWithHat = false;
 
 
     private void Awake()
@@ -41,10 +43,28 @@ public class teleporter : MonoBehaviour
         // Hide the teleport panel initially
         teleportPanel.SetActive(false);
 
+        // Disable Planet 2 UI elements initially
+        goToPlanet2Button.gameObject.SetActive(false); // Hide button
+        planet2Image.gameObject.SetActive(false); // Hide image
+        if (planet2Text != null) planet2Text.SetActive(false); // Hide parent object for text and sprite
+
+
         // Add button listeners for teleporting
         goToPlanet1Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet1Image, 1)));
         goToMainPlanetButton.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(planet1Image, mainPlanetImage, 0)));
         goToPlanet2Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet2Image, 2)));
+    }
+
+
+
+    public void UnlockPlanet2()
+    {
+        hasInteractedWithHat = true;
+
+        // Enable Planet 2 UI elements
+        goToPlanet2Button.gameObject.SetActive(true); // Show button
+        planet2Image.gameObject.SetActive(true); // Show image
+        if (planet2Text != null) planet2Text.SetActive(true); // Show parent object for text and sprite
     }
 
     void Update()
