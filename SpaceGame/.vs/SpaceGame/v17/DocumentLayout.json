@@ -1,25 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\",
+  "WorkspaceRootPath": "C:\\Users\\Mela\\Desktop\\SpaceGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HealthManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PresidentDialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PresidentDialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HealthManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\teleporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HatInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,28 +46,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Boss.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Boss.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Boss.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Boss.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Boss.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAAALcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T06:31:41.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T06:29:57.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "PresidentDialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogueManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PresidentDialogueManager.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogueManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PresidentDialogueManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T05:59:02.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PresidentDialogue.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogue.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PresidentDialogue.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\PresidentDialogue.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PresidentDialogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T05:58:31.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DialogueManager.cs",
-              "DocumentMoniker": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DialogueManager.cs",
-              "ToolTip": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\DialogueManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\DialogueManager.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAAAwAcBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAwAcBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T03:55:27.859Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "HealthManagement.cs",
-              "DocumentMoniker": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HealthManagement.cs",
-              "ToolTip": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HealthManagement.cs",
               "RelativeToolTip": "Assets\\Scripts\\HealthManagement.cs",
               "ViewState": "AgIAAOEAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -60,42 +128,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Dialogue.cs",
-              "DocumentMoniker": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\Dialogue.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Dialogue.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Dialogue.cs",
-              "ToolTip": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\Dialogue.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\Dialogue.cs",
               "RelativeToolTip": "Assets\\Scripts\\Dialogue.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAwDoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T03:46:49.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T03:46:49.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "HatInteraction.cs",
-              "DocumentMoniker": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HatInteraction.cs",
-              "ToolTip": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\HatInteraction.cs",
               "RelativeToolTip": "Assets\\Scripts\\HatInteraction.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAEMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T03:33:54.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T03:33:54.489Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "teleporter.cs",
-              "DocumentMoniker": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
+              "DocumentMoniker": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\teleporter.cs",
-              "ToolTip": "C:\\Users\\andra\\OneDrive\\Desktop\\spacegame 24nov\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
+              "ToolTip": "C:\\Users\\Mela\\Desktop\\SpaceGame\\Assets\\Scripts\\teleporter.cs",
               "RelativeToolTip": "Assets\\Scripts\\teleporter.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAjwCMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T20:34:51.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T20:34:51.988Z"
             }
           ]
         }

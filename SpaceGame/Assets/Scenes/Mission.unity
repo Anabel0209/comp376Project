@@ -1209,15 +1209,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - meow meow la lakkaka dhdhhdhd
-  - 2meow meow la lakkaka dhdhhdhd
-  - 3meow meow la lakkaka dhdhhdhd
-  textSpeed: 0.05
+  - Amalia, you're our last hope.
+  - As you know, Revialis is situated in a cluster of planets, near "Ignios" and
+    "Wintherra".
+  - The leader of this cluster, Mayor, has agreed to meet with you on Ignios.
+  - 'Please head there first and look for a big purple creature. '
+  - I assure you he is quite friendly...
+  textSpeed: 0.035
   npcName: President
   playerLines:
-  - meow meow la lakkaka dhdhhdhd
-  - 2meow meow la lakkaka dhdhhdhd
-  - 3meow meow la lakkaka dhdhhdhd
+  - Yes, Mr. President, sir!
+  - I won't disappoint you, sir!
 --- !u!1 &1245431172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,10 +1423,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 976284c417a087146ae1807842fc8264, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bf396c41f1a35db49a898a1002bf993a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.966
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0

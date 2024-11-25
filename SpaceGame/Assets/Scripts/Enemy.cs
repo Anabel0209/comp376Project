@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float knockbackDuration = 0.5f; // Duration of knockback effect
     public AudioSource deathSound; // AudioSource for the death sound
 
+
     private Vector2 startingPosition;
     private bool movingRight = true;
     private Rigidbody2D rb;

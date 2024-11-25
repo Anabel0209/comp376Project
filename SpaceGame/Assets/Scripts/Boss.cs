@@ -31,7 +31,9 @@ public class Boss : MonoBehaviour
 
     private bool isBreathingPlaying = false;
 
-    
+    public BoxCollider2D babyCollider;
+
+
 
     void Start()
     {
@@ -186,7 +188,7 @@ public class Boss : MonoBehaviour
 
         
         Destroy(cage);
-
+        ReenableBabyCollider();
         StartCoroutine(WaitForDeathAnimation());
     }
 
@@ -219,6 +221,19 @@ public class Boss : MonoBehaviour
             playerHealth.TakeDamage(1);
         }
     }
+
+    private void ReenableBabyCollider()
+    {
+        if (babyCollider != null)
+        {
+            babyCollider.enabled = true;
+        }
+        else
+        {
+            Debug.LogWarning("Baby's BoxCollider2D is not assigned.");
+        }
+    }
+
 
     private IEnumerator ShootProjectile()
     {
