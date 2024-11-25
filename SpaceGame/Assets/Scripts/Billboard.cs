@@ -5,21 +5,21 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     public GameObject EndGameMenu;
-    public GameObject Player; // Reference to the player GameObject to disable movement (if applicable)
+    public GameObject Player; 
 
-    private bool isGamePaused = false; // Track the game state
+    private bool isGamePaused = false; 
 
     private void Start()
     {
         if (EndGameMenu != null)
         {
-            EndGameMenu.SetActive(false); // Ensure the menu is inactive at the start
+            EndGameMenu.SetActive(false); 
         }
     }
 
     public void OnMouseDown()
     {
-        ToggleEndGameMenu(); // Show the menu when the billboard is clicked
+        ToggleEndGameMenu(); 
     }
 
     public void ToggleEndGameMenu()
@@ -29,10 +29,10 @@ public class Billboard : MonoBehaviour
             isGamePaused = !isGamePaused;
             EndGameMenu.SetActive(isGamePaused);
 
-            // Pause or resume the game
+           
             Time.timeScale = isGamePaused ? 0f : 1f;
 
-            // Disable or enable player movement
+            
             if (Player != null)
             {
                 Player.GetComponent<PlayerMovement>().enabled = !isGamePaused;
@@ -40,28 +40,28 @@ public class Billboard : MonoBehaviour
         }
     }
 
-    // Resume button functionality
+   
     public void ResumeGame()
     {
         if (EndGameMenu != null)
         {
             EndGameMenu.SetActive(false);
         }
-        Time.timeScale = 1f; // Resume the game
+        Time.timeScale = 1f;
         isGamePaused = false;
 
-        // Enable player movement
+        
         if (Player != null)
         {
             Player.GetComponent<PlayerMovement>().enabled = true;
         }
     }
 
-    // Quit button functionality
+   
     public void QuitGame()
     {
         Debug.Log("Quitting the game...");
-        Application.Quit(); // Quit the application
+        Application.Quit(); 
 
 #if UNITY_EDITOR
         // Stop play mode in the Unity Editor

@@ -3,29 +3,29 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int health = 5; // Number of jumps needed to kill the boss
-    public float moveSpeed = 4f; // Speed of the boss
-    public float moveRange = 5f; // Range of left and right movement
-    public float knockbackForce = 10f; // Knockback force for the player
-    public Transform player; // Reference to the player
-    public GameObject projectilePrefab; // Projectile prefab
-    public float projectileSpeed = 10f; // Speed of the projectile
-    public float shootInterval = 2.3f; // Time between shots
+    public int health = 5; 
+    public float moveSpeed = 4f;
+    public float moveRange = 5f; 
+    public float knockbackForce = 10f; 
+    public Transform player; 
+    public GameObject projectilePrefab; 
+    public float projectileSpeed = 10f; 
+    public float shootInterval = 2.3f; 
     public GameObject cage;
 
-    public AudioSource takeDamageSound; // Sound when boss takes damage
-    public AudioSource deathSound; // Sound when boss dies
-    public AudioSource shootSound; // Sound when boss shoots a projectile
-    public AudioSource breathing; // Sound when the player is in range
+    public AudioSource takeDamageSound; 
+    public AudioSource deathSound; 
+    public AudioSource shootSound; 
+    public AudioSource breathing; 
 
     private Vector3 initialPosition;
     private bool movingRight = true;
     private Animator animator;
     private Rigidbody2D rb;
 
-    // Boss area bounds
-    private Vector2 bossAreaMin = new Vector2(205, -35); // Minimum bounds of the boss area
-    private Vector2 bossAreaMax = new Vector2(241, -25); // Maximum bounds of the boss area
+    //boss area bounds
+    private Vector2 bossAreaMin = new Vector2(205, -35); 
+    private Vector2 bossAreaMax = new Vector2(241, -25); 
 
     private bool isDead = false;
 
@@ -41,7 +41,6 @@ public class Boss : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        // Start shooting projectiles
      
         StartCoroutine(ShootProjectile());
     }
@@ -58,7 +57,6 @@ public class Boss : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Handle left and right movement
         if (movingRight)
         {
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
@@ -79,7 +77,7 @@ public class Boss : MonoBehaviour
         {
             Vector2 playerPosition = player.position;
 
-            // Check if the player is within the boss area bounds
+          
             if (playerPosition.x >= bossAreaMin.x && playerPosition.x <= bossAreaMax.x &&
                 playerPosition.y >= bossAreaMin.y && playerPosition.y <= bossAreaMax.y)
             {
@@ -148,7 +146,7 @@ public class Boss : MonoBehaviour
 
         if (animator != null)
         {
-            // Set the TakeDamage trigger
+          
             animator.SetTrigger("TakeDamage");
             Debug.Log("TakeDamage trigger activated");
         }
@@ -179,7 +177,7 @@ public class Boss : MonoBehaviour
 
         if (animator != null)
         {
-            animator.Play("BossDeath"); // Replace "BossDeath" with the exact name of your animation state
+            animator.Play("BossDeath"); 
             Debug.Log("Forcing BossDeath animation");
         }
 
@@ -194,14 +192,14 @@ public class Boss : MonoBehaviour
 
     private void StopMovement()
 {
-    // Stop the movement logic
-    movingRight = false; // Prevent movement logic from running
-    rb.velocity = Vector2.zero; // Stop any existing velocity
+    
+    movingRight = false; 
+    rb.velocity = Vector2.zero; 
 
-    // Disable the Rigidbody2D if needed
+   
     if (rb != null)
     {
-        rb.simulated = false; // Stops all physics interactions
+        rb.simulated = false; 
     }
 }
 
@@ -264,7 +262,7 @@ public class Boss : MonoBehaviour
                     Vector2 direction = (player.position - transform.position).normalized;
                     projectileRb.velocity = direction * projectileSpeed;
 
-                    // Play shoot sound only if the player is within bounds
+                    
                     Vector2 playerPosition = player.position;
                     if (playerPosition.x >= bossAreaMin.x && playerPosition.x <= bossAreaMax.x &&
                         playerPosition.y >= bossAreaMin.y && playerPosition.y <= bossAreaMax.y)

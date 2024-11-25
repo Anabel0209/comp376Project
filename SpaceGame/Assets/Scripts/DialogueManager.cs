@@ -6,32 +6,27 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance; // Singleton instance
+    public static DialogueManager instance; 
 
     public TextMeshProUGUI npcTextComponent;
-    public TextMeshProUGUI playerTextComponent; // Text component for player lines
+    public TextMeshProUGUI playerTextComponent; 
     public GameObject dialoguePanel;
-    public GameObject playerPanel; // Panel to show when the player is speaking
+    public GameObject playerPanel; 
     public TextMeshProUGUI npcNameTextComponent;
 
     private NPCExclamationMark currentNpcExclamation;
 
 
-   // public GameObject endGamePanel; // Reference to the end-game panel
-    //public Button endGameResumeButton; // Resume button on the end-game panel
-    //public Button endGameQuitButton; // Quit button on the end-game panel
-   // public GameObject mayorEndGame;
-
 
     public AudioSource playerSound; 
 
-    public PlayerMovement playerMovement; // Reference to PlayerMovement script
+    public PlayerMovement playerMovement; 
 
     private Coroutine typingCoroutine;
-    private Queue<string> playerLinesQueue; // Queue to hold player lines
+    private Queue<string> playerLinesQueue; 
 
-    private bool isDialogueActive = false; // Flag to track active dialogue state
-    private bool isTyping = false; // Flag to control typing state
+    private bool isDialogueActive = false; 
+    private bool isTyping = false; 
     public event System.Action OnDialogueEnd;
     private bool isInputLocked = false;
 
@@ -51,12 +46,11 @@ public class DialogueManager : MonoBehaviour
         }
         playerLinesQueue = new Queue<string>();
 
-        // Ensure panels are hidden at the start
+       
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
        // if (endGamePanel != null) endGamePanel.SetActive(false);
 
-        // Set up button listeners
         //if (endGameResumeButton != null) endGameResumeButton.onClick.AddListener(ResumeGame);
         //if (endGameQuitButton != null) endGameQuitButton.onClick.AddListener(QuitGame);
     }
@@ -64,7 +58,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(string[] npcLines, float textSpeed, string[] playerLines = null, string npcName = "", AudioSource npcAudioSource = null)
     {
         Debug.Log($"StartDialogue called. NPC Name: {npcName}");
-        if (isDialogueActive || IsInputLocked()) return; // Prevent restarting dialogue
+        if (isDialogueActive || IsInputLocked()) return; 
 
         LockInput();
         isDialogueActive = true;
@@ -75,25 +69,25 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        // Stop exclamation mark flashing on the NPC
-        currentNpcExclamation = FindObjectOfType<NPCExclamationMark>(); // Assign the active NPC's exclamation mark
+     
+        currentNpcExclamation = FindObjectOfType<NPCExclamationMark>(); 
         if (currentNpcExclamation != null)
         {
             currentNpcExclamation.StopFlashing();
         }
 
 
-        // Disable player movement at the start of dialogue
+       
         if (playerMovement != null)
         {
             playerMovement.DisableMovement();
         }
 
 
-        // Skip NPC lines for "Turnip hat" and play only player lines
+        
         if (npcName == "Turnip hat")
         {
-            npcNameTextComponent.text = ""; // No NPC name for Turnip hat
+            npcNameTextComponent.text = ""; 
             if (playerLines != null)
             {
                 playerLinesQueue.Clear();
@@ -102,11 +96,11 @@ public class DialogueManager : MonoBehaviour
                     playerLinesQueue.Enqueue(line);
                 }
             }
-            DisplayPlayerLines(); // Immediately start player lines
+            DisplayPlayerLines(); 
             return;
         }
 
-        // Regular dialogue behavior for other NPCs
+     
         npcNameTextComponent.text = npcName;
         typingCoroutine = StartCoroutine(TypeLines(npcLines, textSpeed, npcAudioSource));
 
@@ -126,9 +120,9 @@ public class DialogueManager : MonoBehaviour
         {
             if (npcAudioSource.isPlaying)
             {
-                npcAudioSource.Stop(); // Stop any current sound
+                npcAudioSource.Stop();
             }
-            npcAudioSource.Play(); // Play the new sound
+            npcAudioSource.Play(); 
         }
     }
 
@@ -144,16 +138,16 @@ public class DialogueManager : MonoBehaviour
         else { 
         dialoguePanel.SetActive(true);
         npcTextComponent.text = string.Empty;
-        playerPanel.SetActive(false); // Ensure player panel is hidden during NPC dialogue
+        playerPanel.SetActive(false);
 
         foreach (string line in lines)
         {
-                // Play the NPC-specific sound
+                
         PlayNpcSound(npcAudioSource);
 
-            if (isTyping) yield break; // Prevent overlapping typing
+            if (isTyping) yield break; 
 
-            isTyping = true; // Set typing flag
+            isTyping = true; 
             npcTextComponent.text = string.Empty;
             
 
@@ -163,9 +157,9 @@ public class DialogueManager : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed);
             }
 
-            isTyping = false; // Reset typing flag
+            isTyping = false; 
 
-            // Wait for user input before moving to the next line
+           
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
 
@@ -187,7 +181,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypePlayerLines()
     {
-        playerPanel.SetActive(true); // Show player panel when the player is speaking
+        playerPanel.SetActive(true); 
         playerTextComponent.text = string.Empty;
 
         while (playerLinesQueue.Count > 0)
@@ -195,19 +189,19 @@ public class DialogueManager : MonoBehaviour
             string line = playerLinesQueue.Dequeue();
             playerTextComponent.text = string.Empty;
 
-            // Play the player sound once when starting a new player line
+           
             PlayPlayerSound();
 
 
             foreach (char c in line.ToCharArray())
             {
                 playerTextComponent.text += c;
-                yield return new WaitForSeconds(0.05f); // Adjust the text speed as needed
+                yield return new WaitForSeconds(0.05f); 
             }
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
 
-        playerPanel.SetActive(false); // Hide the panel after the player's lines are done
+        playerPanel.SetActive(false); 
         EndDialogue();
     }
 
@@ -223,15 +217,15 @@ public class DialogueManager : MonoBehaviour
         npcTextComponent.text = string.Empty;
         playerTextComponent.text = string.Empty;
 
-        // Stop exclamation mark flashing for the current NPC
+      
         if (currentNpcExclamation != null)
         {
             currentNpcExclamation.StopFlashing();
-            currentNpcExclamation = null; // Clear the reference after stopping
+            currentNpcExclamation = null;
         }
 
 
-        // Enable player movement after the dialogue ends
+     
         if (playerMovement != null)
         {
             playerMovement.EnableMovement();
@@ -241,56 +235,9 @@ public class DialogueManager : MonoBehaviour
         UnlockInput();
         OnDialogueEnd?.Invoke();
 
-        // Check if this is the mayorEndGame
-        //if (mayorEndGame != null && mayorEndGame.activeInHierarchy)
-        //{
-        //    Debug.Log("Dialogue with mayorEndGame complete. Opening End-Game Panel.");
-        //    ShowEndGamePanel();
-        //}
-        //else
-        //{
-        //    Debug.Log("Dialogue with non-mayor NPC complete. No panel will open.");
-        //}
-
+    
+ 
     }
-
-    //private void ShowEndGamePanel()
-    //{
-       // Debug.Log("ShowEndGamePanel called.");
-       // if (!mayorEndGame.activeInHierarchy)
-       // {
-       //     Debug.LogError("ShowEndGamePanel() called incorrectly. Preventing activation.");
-        //    return;
-       //}
-
-        //if (endGamePanel != null)
-       // {
-        //    Debug.Log("Displaying End-Game Panel.");
-        //    endGamePanel.SetActive(true);
-        //    Time.timeScale = 0f; // Pause the game
-        //}
-    //}
-
-    //private void ResumeGame()
-    //{
-     //   if (endGamePanel != null) endGamePanel.SetActive(false);
-    //    Time.timeScale = 1f; // Resume the game
-    //    endGamePanelAllowed = false;
-    //}
-
-    //private void QuitGame()
-   // {
-    //    Debug.Log("Quitting game...");
-
-        // This will quit the application when running outside of the Unity Editor
-   //     Application.Quit();
-
-        // This ensures you can see it working in the Unity Editor
-//#if UNITY_EDITOR
-//    UnityEditor.EditorApplication.isPlaying = false;
-//#endif
-  //  }
-
 
 
 
@@ -317,7 +264,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (playerSound.isPlaying)
             {
-                playerSound.Stop(); // Stop the current sound if it's playing
+                playerSound.Stop(); 
             }
             playerSound.Play();
         }

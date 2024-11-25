@@ -24,21 +24,19 @@ public class HealthManagement : MonoBehaviour
 
     public Animator animator;
 
-    private Vector3 bossAreaRespawnPosition = new Vector3(200, -33, 0); // Coordinates for respawning after boss death
-    private bool diedToBoss = false; // Flag to track if the player died due to the boss
-    private Vector2 bossAreaMin = new Vector2(205, -35); // Minimum bounds of the boss area
-    private Vector2 bossAreaMax = new Vector2(241, -25); // Maximum bounds of the boss area
+    private Vector3 bossAreaRespawnPosition = new Vector3(200, -33, 0); 
+    private bool diedToBoss = false; 
+    private Vector2 bossAreaMin = new Vector2(205, -35); 
+    private Vector2 bossAreaMax = new Vector2(241, -25); 
 
-    private bool checkpointActivated = false; // Flag for checkpoint activation
-    private Vector3 planet2SpawnPosition; // Default spawn position for Planet 2
-    private Vector3 checkpointPosition; // The position of the active checkpoint
+    private bool checkpointActivated = false; 
+    private Vector3 planet2SpawnPosition; 
+    private Vector3 checkpointPosition; 
 
 
-
-    // Death panel
-    public GameObject deathPanel;       // Panel that appears when the player dies
-    public Button respawnButton;       // Respawn button on the death panel
-    private int currentPlanet;         // Track the current planet the player is on
+    public GameObject deathPanel;       
+    public Button respawnButton;       
+    private int currentPlanet;         
    
 
 
@@ -51,22 +49,19 @@ public class HealthManagement : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
-        // Set up the respawn button listener
+      
         if (respawnButton != null)
         {
             respawnButton.onClick.AddListener(RespawnPlayer);
         }
 
-        // Ensure the death panel is hidden initially
         if (deathPanel != null)
         {
             deathPanel.SetActive(false);
         }
 
-        // Set the default spawn position for Planet 2 (adjust coordinates as needed)
         planet2SpawnPosition = GameObject.Find("planet 2").transform.position;
 
-        // Initialize checkpoint position to default Planet 2 spawn
         checkpointPosition = planet2SpawnPosition;
 
     }
@@ -74,16 +69,15 @@ public class HealthManagement : MonoBehaviour
 
     public void SetCheckpoint(Vector3 newCheckpoint)
     {
-        checkpointPosition = newCheckpoint; // Update checkpoint position
-        checkpointActivated = true;        // Activate checkpoint logic
+        checkpointPosition = newCheckpoint;
+        checkpointActivated = true;        
         Debug.Log("Checkpoint set at: " + checkpointPosition);
     }
 
 
-    // Update is called once per frame
     void Update()
     {
-        //take damage one uppon entering the collider then every 2 seconds while staying in it
+     
         if (inLava)
         {
             damageTimer += Time.deltaTime;
@@ -110,7 +104,7 @@ public class HealthManagement : MonoBehaviour
             TriggerDeath();
         }
 
-        // Restore health on planet transition
+
         int newPlanet = (int)myCamera.GetComponent<cameraController>().planetnb;
         if (newPlanet != currentPlanet)
         {
@@ -121,10 +115,10 @@ public class HealthManagement : MonoBehaviour
 
     }
 
-    // New method to restore health on planet transitions
+ 
     private void RestoreHealthOnTravel()
     {
-        GainHealth(maxHealth); // Restore health to maximum
+        GainHealth(maxHealth); 
         Debug.Log("Health restored to maximum on planet transition.");
     }
 
@@ -227,20 +221,17 @@ public class HealthManagement : MonoBehaviour
         }
     }
 
-
-    // Trigger the death sequence
     private void TriggerDeath()
     {
-        // Stop player movement and show the death panel
+       
         if (deathPanel != null)
         {
             deathPanel.SetActive(true);
         }
 
-        // Pause the game
+
         Time.timeScale = 0f;
 
-        // Save the current planet the player died on
         currentPlanet = (int)myCamera.GetComponent<cameraController>().planetnb;
         Debug.Log("Player died on planet: " + currentPlanet);
 
@@ -251,70 +242,62 @@ public class HealthManagement : MonoBehaviour
 
     private void RespawnPlayer()
     {
-        GetComponent<PlayerMovement>().enabled = false; // Disable movement temporarily
+        GetComponent<PlayerMovement>().enabled = false; 
 
         if (deathPanel != null)
         {
             deathPanel.SetActive(false);
         }
 
-        // Get the current planet from the cameraController
         float currentPlanet = myCamera.GetComponent<cameraController>().planetnb;
         Vector3 respawnPosition;
 
-        // Check if the player died in the boss area
+     
         if (transform.position.x >= bossAreaMin.x && transform.position.x <= bossAreaMax.x &&
             transform.position.y >= bossAreaMin.y && transform.position.y <= bossAreaMax.y)
         {
             Debug.Log("Player died in boss area. Respawning at boss area coordinates.");
             respawnPosition = bossAreaRespawnPosition;
         }
-        else if (currentPlanet == 2) // Planet 2 logic
+        else if (currentPlanet == 2) 
         {
             if (checkpointActivated && transform.position.x >= checkpointPosition.x)
             {
                 Debug.Log("Respawning at Planet 2's checkpoint.");
-                respawnPosition = checkpointPosition; // Respawn at checkpoint
+                respawnPosition = checkpointPosition; 
             }
             else
             {
                 Debug.Log("Respawning at Planet 2's default spawn.");
-                respawnPosition = planet2SpawnPosition; // Default spawn for Planet 2
+                respawnPosition = planet2SpawnPosition; 
             }
         }
-        else if (currentPlanet == 1) // Planet 1 logic
+        else if (currentPlanet == 1) 
         {
             Debug.Log("Respawning at Planet 1's default spawn.");
-            respawnPosition = GameObject.Find("planet 1").transform.position; // Default spawn for Planet 1
+            respawnPosition = GameObject.Find("planet 1").transform.position; 
         }
-        else if (currentPlanet == 0) // Main Planet logic
+        else if (currentPlanet == 0) 
         {
             Debug.Log("Respawning at Main Planet's default spawn.");
-            respawnPosition = GameObject.Find("main planet").transform.position; // Default spawn for Main Planet
+            respawnPosition = GameObject.Find("main planet").transform.position; 
         }
         else
         {
             Debug.LogWarning("Invalid planet index. Respawning at Main Planet as fallback.");
-            respawnPosition = GameObject.Find("main planet").transform.position; // Fallback to Main Planet spawn
+            respawnPosition = GameObject.Find("main planet").transform.position; 
         }
 
 
-        // Ensure the correct z position
-        respawnPosition.z = 0f; // Set the player's z position to 0 (or the desired value)
+        
+        respawnPosition.z = 0f; 
         transform.position = respawnPosition;
 
-        // Restore health and re-enable movement
         GainHealth(maxHealth);
         Time.timeScale = 1f;
 
-        GetComponent<PlayerMovement>().enabled = true; // Re-enable movement
+        GetComponent<PlayerMovement>().enabled = true; 
     }
-
-
-
-
-
-
 
 
     public void ResetTakeDamage()

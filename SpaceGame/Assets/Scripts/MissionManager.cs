@@ -5,13 +5,13 @@ using System.Collections;
 
 public class MissionManager : MonoBehaviour
 {
-    public GameObject fadePanel; // Panel for fade effect
-    public float fadeDuration = 4f; // Duration for fade in/out
-    public GameObject landButton; // Reference to the Land button
+    public GameObject fadePanel;
+    public float fadeDuration = 4f; 
+    public GameObject landButton; 
     private CanvasGroup fadeCanvasGroup;
 
 
-    public AudioSource backgroundMusic; // AudioSource for background music
+    public AudioSource backgroundMusic; 
 
     private float lastClickTime = 0f;
     private float clickDelay = 2f;
@@ -20,7 +20,7 @@ public class MissionManager : MonoBehaviour
     private PresidentDialogue presidentDialogue;
 
 
-    private bool hasDialogueStarted = false; // Flag to ensure dialogue starts once
+    private bool hasDialogueStarted = false; 
     private bool hasDialogueEnded = false;
 
     private bool isProcessing = false;
@@ -28,14 +28,13 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
 
-        // Start the background music
+    
         if (backgroundMusic != null)
         {
-            backgroundMusic.loop = true; // Ensure the music loops
+            backgroundMusic.loop = true; 
             backgroundMusic.Play();
         }
 
-        // Find the President's Dialogue component
         dialogueManager = FindObjectOfType<PresidentDialogueManager>();
         if (dialogueManager == null)
         {
@@ -43,7 +42,6 @@ public class MissionManager : MonoBehaviour
             return;
         }
 
-        // Find the President's Dialogue component
         GameObject presidentGameObject = GameObject.Find("President");
         if (presidentGameObject != null)
         {
@@ -51,21 +49,18 @@ public class MissionManager : MonoBehaviour
         }
 
 
-        // Initialize and hide the Land button
         if (landButton != null)
         {
             landButton.SetActive(false);
         }
 
-        // Fade in effect
+
         fadeCanvasGroup = fadePanel.GetComponent<CanvasGroup>();
         if (fadeCanvasGroup != null && !hasDialogueStarted)
         {
             StartCoroutine(FadeInAndStartDialogue());
         }
 
-
-        // Subscribe to the dialogue end event
         dialogueManager.OnDialogueEnd += OnDialogueEnd;
 
     }
@@ -76,7 +71,7 @@ public class MissionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (Time.time - lastClickTime < clickDelay) return; // Prevent rapid clicks
+            if (Time.time - lastClickTime < clickDelay) return; 
             lastClickTime = Time.time;
         }
     }
@@ -85,12 +80,12 @@ public class MissionManager : MonoBehaviour
     IEnumerator FadeInAndStartDialogue()
     {
 
-        if (isProcessing) yield break; // Prevent additional triggers
+        if (isProcessing) yield break; 
         isProcessing = true;
 
 
         float elapsedTime = 0f;
-        fadeCanvasGroup.alpha = 1f; // Start fully opaque
+        fadeCanvasGroup.alpha = 1f; 
 
         
 
@@ -101,17 +96,16 @@ public class MissionManager : MonoBehaviour
             yield return null;
         }
 
-        fadeCanvasGroup.alpha = 0f; // Fully transparent
-        fadePanel.SetActive(false); // Optional: disable panel if not needed after fade
+        fadeCanvasGroup.alpha = 0f; 
+        fadePanel.SetActive(false); 
 
-        // Start the dialogue with the President after the fade, only if it hasn't started
+       
         if (dialogueManager != null && presidentDialogue != null && !hasDialogueStarted)
         {
             hasDialogueStarted = true;
             dialogueManager.StartDialogue(presidentDialogue.lines, presidentDialogue.textSpeed, presidentDialogue.playerLines, presidentDialogue.npcName);
         }
 
-        // Listen for the completion of the dialogue
         if (PresidentDialogueManager.instance != null)
         {
             PresidentDialogueManager.instance.OnDialogueEnd += OnDialogueEnd;
@@ -120,7 +114,6 @@ public class MissionManager : MonoBehaviour
 
     private void OnDialogueEnd()
     {
-        // Display the Land button when dialogue ends
         if (landButton != null)
         {
             hasDialogueEnded = true;
@@ -130,13 +123,11 @@ public class MissionManager : MonoBehaviour
 
     public void OnLandButtonClicked()
     {
-        // Load the Level_1 scene
         SceneManager.LoadScene("Level_1");
     }
 
     private void OnDestroy()
     {
-        // Unsubscribe from the dialogue end event to avoid memory leaks
         if (dialogueManager != null)
         {
             dialogueManager.OnDialogueEnd -= OnDialogueEnd;

@@ -20,7 +20,7 @@ public class cameraController : MonoBehaviour
     Camera myCamera;
     
 
-    // Start is called before the first frame update
+
     void Start()
     {
         myCamera = gameObject.GetComponent<Camera>();
@@ -29,12 +29,12 @@ public class cameraController : MonoBehaviour
         //camHalfLength = myCamera.aspect * camHalfHeight;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         camHalfHeight = myCamera.orthographicSize;
         camHalfLength = myCamera.aspect * camHalfHeight;
-        //camera position
+
         float horizontalPosition, verticalPosition;
 
         if (planetnb == 0)

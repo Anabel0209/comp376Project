@@ -7,12 +7,12 @@ using DG.Tweening;
 public class teleporter : MonoBehaviour
 {
     public GameObject myCharacter;
-    public Transform mainPlanet; // Reference to the main planet's Transform
-    public Transform planet1; // Reference to planet1's Transform
-    public Transform planet2; //Reference to planet 2's Transform
+    public Transform mainPlanet;  
+    public Transform planet1;  
+    public Transform planet2; 
     private Camera myCamera;
 
-    // UI Elements for teleport animation
+  
     public GameObject teleportanimationPanel;
     public Image spaceshipImage;
     public RectTransform mainPlanetImage;
@@ -21,18 +21,18 @@ public class teleporter : MonoBehaviour
     public float animationDuration = 3f;
 
 
-    // UI Elements
-    public GameObject teleportPanel; // Reference to the UI panel
+
+    public GameObject teleportPanel; 
     public Button goToPlanet1Button;
     public Button goToMainPlanetButton;
     public Button goToPlanet2Button;
     public GameObject planet2Text;
 
 
-    public float interactionRadius = 5f; // Radius within which the player can interact
+    public float interactionRadius = 5f; 
 
     private bool isTeleporting = false;
-    private bool panelIsOpen = false; // Add this line to declare panelIsOpen
+    private bool panelIsOpen = false; 
     private bool hasInteractedWithHat = false;
 
 
@@ -40,16 +40,13 @@ public class teleporter : MonoBehaviour
     {
         myCamera = Camera.main;
 
-        // Hide the teleport panel initially
+       
         teleportPanel.SetActive(false);
 
-        // Disable Planet 2 UI elements initially
-        goToPlanet2Button.gameObject.SetActive(false); // Hide button
-        planet2Image.gameObject.SetActive(false); // Hide image
-        if (planet2Text != null) planet2Text.SetActive(false); // Hide parent object for text and sprite
+        goToPlanet2Button.gameObject.SetActive(false);
+        planet2Image.gameObject.SetActive(false); 
+        if (planet2Text != null) planet2Text.SetActive(false); 
 
-
-        // Add button listeners for teleporting
         goToPlanet1Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet1Image, 1)));
         goToMainPlanetButton.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(planet1Image, mainPlanetImage, 0)));
         goToPlanet2Button.onClick.AddListener(() => StartCoroutine(TeleportWithAnimation(mainPlanetImage, planet2Image, 2)));
@@ -61,28 +58,24 @@ public class teleporter : MonoBehaviour
     {
         hasInteractedWithHat = true;
 
-        // Enable Planet 2 UI elements
-        goToPlanet2Button.gameObject.SetActive(true); // Show button
-        planet2Image.gameObject.SetActive(true); // Show image
-        if (planet2Text != null) planet2Text.SetActive(true); // Show parent object for text and sprite
+        goToPlanet2Button.gameObject.SetActive(true); 
+        planet2Image.gameObject.SetActive(true); 
+        if (planet2Text != null) planet2Text.SetActive(true); 
     }
 
     void Update()
     {
-        // Check distance between player and spaceship
         float distanceToPlayer = Vector2.Distance(transform.position, myCharacter.transform.position);
 
-        // If panel is open, only hide it when the player moves out of range
+     
         if (panelIsOpen && distanceToPlayer > interactionRadius)
         {
             teleportPanel.SetActive(false);
-            panelIsOpen = false; // Reset the flag
+            panelIsOpen = false; 
             return;
         }
 
         
-
-
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -90,12 +83,10 @@ public class teleporter : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                
-                // Show the teleport panel when a spaceship is clicked
+         
                 teleportPanel.SetActive(true);
-                panelIsOpen = true; // Set the flag
+                panelIsOpen = true; 
 
-                // Add button listeners for teleporting
                 goToPlanet1Button.onClick.AddListener(() =>
                 {
                     RectTransform startPlanetImage = GetCurrentPlanetImage();
@@ -132,7 +123,7 @@ public class teleporter : MonoBehaviour
             return planet2Image;
         }
 
-        return mainPlanetImage; // Default fallback
+        return mainPlanetImage; 
     }
 
 
@@ -141,7 +132,6 @@ public class teleporter : MonoBehaviour
         teleportanimationPanel.SetActive(true);
         spaceshipImage.rectTransform.anchoredPosition = startPlanet.anchoredPosition;
 
-        // Animate spaceship movement
         spaceshipImage.rectTransform
             .DOAnchorPos(targetPlanet.anchoredPosition, animationDuration)
             .SetEase(Ease.InOutQuad)
@@ -156,7 +146,7 @@ public class teleporter : MonoBehaviour
 
     private void CompleteTeleportation(int targetPlanetIndex)
     {
-        // Handle teleportation based on the target planet index
+
         Transform targetPlanet = null;
 
         if (targetPlanetIndex == 0)
@@ -180,14 +170,14 @@ public class teleporter : MonoBehaviour
 
         if (targetPlanet != null)
         {
-            // Move the player to the target planet
+
             myCharacter.transform.position = new Vector3(targetPlanet.position.x, targetPlanet.position.y, 0);
 
-            // Ensure the camera is positioned correctly
+
             myCamera.transform.position = new Vector3(targetPlanet.position.x, targetPlanet.position.y, myCamera.transform.position.z);
         }
 
-        // Hide the teleport animation panel if it's still visible
+   
         teleportanimationPanel.SetActive(false);
     }
 
@@ -199,7 +189,7 @@ public class teleporter : MonoBehaviour
 
 
 
-    public int CurrentPlanet { get; private set; } = 0; // 0 for Main Planet, 1 for Planet1
+    public int CurrentPlanet { get; private set; } = 0; 
 
 
     public void SetCurrentPlanet(int planetNumber)
@@ -216,19 +206,16 @@ public class teleporter : MonoBehaviour
 
         CurrentPlanet = 1;
 
-        // Set the character's position with Z set to 0
         myCharacter.transform.position = new Vector3(planet1.position.x, planet1.position.y, 0);
 
-        // Ensure Sprite Renderer is enabled
         myCharacter.GetComponent<SpriteRenderer>().enabled = true;
 
-        // Adjust camera position if necessary
         myCamera.transform.position = new Vector3(planet1.position.x, planet1.position.y, myCamera.transform.position.z);
 
         yield return new WaitForSeconds(0.1f);
         teleportPanel.SetActive(false);
-        isTeleporting = true; // Set teleporting state to true
-        panelIsOpen = false; // Reset the panel state
+        isTeleporting = true; 
+        panelIsOpen = false; 
     }
 
     private IEnumerator TeleportToMainPlanet()
@@ -238,19 +225,17 @@ public class teleporter : MonoBehaviour
 
         CurrentPlanet = 0;
 
-        // Set the character's position with Z set to 0
+  
         myCharacter.transform.position = new Vector3(mainPlanet.position.x, mainPlanet.position.y, 0);
 
-        // Ensure Sprite Renderer is enabled
         myCharacter.GetComponent<SpriteRenderer>().enabled = true;
 
-        // Adjust camera position if necessary
         myCamera.transform.position = new Vector3(mainPlanet.position.x, mainPlanet.position.y, myCamera.transform.position.z);
 
         yield return new WaitForSeconds(0.1f);
         teleportPanel.SetActive(false);
-        isTeleporting = true; // Set teleporting state to true
-        panelIsOpen = false; // Reset the panel state
+        isTeleporting = true; 
+        panelIsOpen = false; 
     }
 
     private IEnumerator TeleportToPlanet2()
@@ -260,19 +245,19 @@ public class teleporter : MonoBehaviour
 
         CurrentPlanet = 2;
 
-        // Set the character's position with Z set to 0
+   
         myCharacter.transform.position = new Vector3(planet2.position.x, planet2.position.y, 0);
 
-        // Ensure Sprite Renderer is enabled
+    
         myCharacter.GetComponent<SpriteRenderer>().enabled = true;
 
-        // Adjust camera position if necessary
+
         myCamera.transform.position = new Vector3(planet2.position.x, planet2.position.y, myCamera.transform.position.z);
 
         yield return new WaitForSeconds(0.1f);
         teleportPanel.SetActive(false);
-        isTeleporting = true; // Set teleporting state to true
-        panelIsOpen = false; // Reset the panel state
+        isTeleporting = true; 
+        panelIsOpen = false;
     }
 
 }

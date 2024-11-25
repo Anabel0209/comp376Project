@@ -11,11 +11,11 @@ public class Dialogue : MonoBehaviour
     public GameObject mamaImage;
     public GameObject papaImage;
     public GameObject yellowTurnipImage;
-    public GameObject npcDialoguePanel; // Reference to NPC dialogue panel
-    public string npcName; // New field for NPC name
-    public string[] playerLines; // New field for player lines
-    public AudioSource npcAudioSource; // New field for NPC-specific sound
-    public GameObject gem; // Drag "gem_end" into this field in the Inspector
+    public GameObject npcDialoguePanel; 
+    public string npcName; 
+    public string[] playerLines; 
+    public AudioSource npcAudioSource; 
+    public GameObject gem; 
     public BoxCollider2D billboardCollider;
 
 
@@ -26,10 +26,9 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-        // Automatically start dialogue if this is the President
+      
         if (gameObject.name == "President")
         {
-            // Set the NPC name
             npcName = "President";
             hasDialogueStarted = true;
             DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName, npcAudioSource);
@@ -41,10 +40,10 @@ public class Dialogue : MonoBehaviour
 
         if (gameObject.name == "Mayor_fix")
         {
-            GameObject mayor = GameObject.Find("Mayor_hide"); // Find the GameObject named "Mayor"
-            if (mayor != null) // Ensure the object exists
+            GameObject mayor = GameObject.Find("Mayor_hide");
+            if (mayor != null) 
             {
-                mayor.SetActive(false); // Disable the GameObject named "Mayor"
+                mayor.SetActive(false); 
             }
         }
 
@@ -60,7 +59,7 @@ public class Dialogue : MonoBehaviour
 
         if (gameObject.name == "YellowTurnip")
         {
-            // Set checkpoint at YellowTurnip's position
+            
             FindObjectOfType<HealthManagement>().SetCheckpoint(transform.position);
         }
 
@@ -70,15 +69,15 @@ public class Dialogue : MonoBehaviour
         if (Time.time - lastInputTime < inputCooldown) return;
         lastInputTime = Time.time;
 
-        // Special handling for "Turnip Hat"
+       
         if (gameObject.name == "Turnip hat")
         {
             hasDialogueStarted = true;
             DialogueManager.instance.StartDialogue(lines, textSpeed, playerLines, npcName, npcAudioSource);
-            return; // Exit after handling "Turnip Hat"
+            return; 
         }
 
-        // Regular dialogue behavior for other NPCs
+      
         if (string.IsNullOrEmpty(npcName))
         {
             AssignDefaultNPCName();
@@ -91,7 +90,7 @@ public class Dialogue : MonoBehaviour
 
     void ShowRelevantImage()
     {
-        // Hide all images first
+     
         if (mayorImage != null) mayorImage.SetActive(false);
         if (turnipImage != null) turnipImage.SetActive(false);
         if (presidentImage != null) presidentImage.SetActive(false);
@@ -100,7 +99,7 @@ public class Dialogue : MonoBehaviour
         if (papaImage != null) papaImage.SetActive(false);
         if (yellowTurnipImage != null) yellowTurnipImage.SetActive(false);
 
-        // Show the specific image for the NPC clicked
+        
         if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor_end" && mayorImage != null || gameObject.name == "Mayor_fix" && mayorImage != null || gameObject.name == "Mayor_hide" && mayorImage != null || gameObject.name == "Mayor_endGame" && mayorImage != null)
         {
             mayorImage.SetActive(true);
@@ -166,7 +165,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            npcName = "Unknown NPC"; // Fallback name
+            npcName = "Unknown NPC"; 
         }
 
       

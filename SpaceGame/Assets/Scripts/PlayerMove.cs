@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true; //made it public to access it in the healthManagement class
 
     [Header("Ice Sliding Settings")]
-    public float iceFriction = 0.98f; // Friction factor for ice, closer to 1 means more sliding
+    public float iceFriction = 0.98f; //friction factor for ice, closer to 1 means more sliding
 
     private bool isOnIce = false;
     private bool onIce = false;
@@ -100,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        // Adjusted to avoid flickering between animations
         float velocityMagnitude = rb.velocity.magnitude;
         if (velocityMagnitude < 0.01f)
         {
@@ -110,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
 
         float yVelocity = rb.velocity.y;
 
-        // Apply a threshold to treat small yVelocity as grounded
         if (isGrounded && Mathf.Abs(yVelocity) < 0.1f)
         {
             yVelocity = 0f;
@@ -179,15 +177,15 @@ public class PlayerMovement : MonoBehaviour
             Vector2 surfaceNormal = collision.contacts[0].normal;
             float rampAngle = Vector2.Angle(surfaceNormal, Vector2.up);
 
-            if (rampAngle > 30f) // Steep ramp
+            if (rampAngle > 30f) 
             {
                 canMove = false;
-                rb.gravityScale = baseGravity * 2f; // Increase gravity
-                rb.AddForce(Vector2.down * 5f, ForceMode2D.Force); // Sliding force
+                rb.gravityScale = baseGravity * 2f; 
+                rb.AddForce(Vector2.down * 5f, ForceMode2D.Force); 
             }
             else
             {
-                canMove = true; // Allow movement on shallow ramps
+                canMove = true; 
                 rb.gravityScale = baseGravity;
             }
         }
@@ -431,7 +429,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
         
-            // GroundCheck box
+            //groundCheck box
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
         

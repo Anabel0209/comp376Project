@@ -28,24 +28,23 @@ public class ItemCollectionManager : MonoBehaviour
 
     private AudioManager audioManager;
 
-    private cameraController camController; // Reference to check the current planet
+    private cameraController camController; 
 
-    public GameObject arrow; // Reference to the arrow GameObject
-    public GameObject spaceship; // Reference to the spaceship GameObject
+    public GameObject arrow; 
+    public GameObject spaceship; 
 
 
 
 
     private void Start()
     {
-        // Find AudioManager in the scene
+      
         audioManager = FindObjectOfType<AudioManager>();
         if (audioManager == null)
         {
             Debug.LogError("AudioManager script is missing in the scene!");
         }
 
-        // Start the arrow flashing effect
         if (arrow != null)
         {
             StartCoroutine(FlashArrow());
@@ -93,38 +92,28 @@ public class ItemCollectionManager : MonoBehaviour
             StartCoroutine(cameraShake.Shake(1.5f, 0.4f));
 
             //player say something
-            if (hasInteracted) return; // Prevent multiple interactions
+            if (hasInteracted) return; 
             hasInteracted = true;
 
             
             DialogueManager.instance.StartDialogue(
-             new string[0], // No NPC lines
-             0.05f,         // Text speed
-             new string[] { "What was that?" }, // Player's line
+             new string[0],
+             0.05f,         
+             new string[] { "What was that?" },
              "Turnip hat");
 
-            //enable the modifications on the main planet
+          
             endGameGrid.SetActive(true);
             endGameDecoration.SetActive(true);
 
-            // Trigger audio manager to switch to final main planet audio
             if (audioManager != null)
             {
                 audioManager.ActivateFinalAudio();
             }
 
-            // Hide arrow and spaceship
+       
             HideArrowAndSpaceship();
 
-            // Strictly ensure `endGamePanel` never opens during gem collection
-            //if (DialogueManager.instance != null && DialogueManager.instance.endGamePanel != null)
-            //{
-            //  if (DialogueManager.instance.endGamePanel.activeSelf)
-            // {
-            //     Debug.LogError("Gem collection attempted to trigger End-Game Panel. Forcing closure.");
-            //     DialogueManager.instance.endGamePanel.SetActive(false); // Force close
-            // }
-            //}
         }
     }
 
@@ -146,13 +135,13 @@ public class ItemCollectionManager : MonoBehaviour
 
     private IEnumerator FlashArrow()
     {
-        while (!endGameSequencePlayed) // Flash until end game is reached
+        while (!endGameSequencePlayed) 
         {
             if (arrow != null)
             {
-                arrow.SetActive(!arrow.activeSelf); // Toggle visibility
+                arrow.SetActive(!arrow.activeSelf); 
             }
-            yield return new WaitForSeconds(0.5f); // Adjust flash speed as needed
+            yield return new WaitForSeconds(0.5f); 
         }
     }
 

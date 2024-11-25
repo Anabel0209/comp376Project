@@ -26,13 +26,13 @@ public class BabyGolemFollow : MonoBehaviour
     private float distanceFromMama;
     public AudioSource baby;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //calculate the distance from mama
@@ -48,17 +48,17 @@ public class BabyGolemFollow : MonoBehaviour
 
         if (isAttached)
         {
-            // Determine the player's direction and update the offset once
-            if (attachededTo.transform.localScale.x > 0) // Looking right
+            
+            if (attachededTo.transform.localScale.x > 0) 
             {
                 currentOffset = offsetOnThePlayerLookingRight;
             }
-            else // Looking left
+            else 
             {
                 currentOffset = offsetOnThePlayerLookingLeft;
             }
 
-            // Smoothly follow the player with the current offset
+          
             Vector3 targetPosition = attachededTo.transform.position + currentOffset;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
         }
@@ -67,23 +67,23 @@ public class BabyGolemFollow : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hasInteracted) return; // Prevent multiple interactions
+        if (hasInteracted) return; 
         hasInteracted = true;
 
         baby.Play();
 
         //player dialogue when finding baby golem
         DialogueManager.instance.StartDialogue(
-         new string[0], // No NPC lines
-         0.05f,         // Text speed
-         new string[] { "Baby Golem!", "Let's get you home." }, // Player's line
+         new string[0], 
+         0.05f,         
+         new string[] { "Baby Golem!", "Let's get you home." }, 
          "Turnip hat");
 
         isAttached = true;
 
         gameObject.GetComponent<Collider2D>().enabled = false;
 
-        //Setup the new NPC
+        //setup the new NPCs
         if (mamaGolem != null) mamaGolem.SetActive(false);
         if (papaGolem != null) papaGolem.SetActive(false);
         if (newMamaGolem != null) newMamaGolem.SetActive(true);

@@ -10,13 +10,11 @@ public class MoovingPlatform : MonoBehaviour
 
     Vector2 direction;
 
-    // Start is called before the first frame update
     void Start()
     {
         direction = target1.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Vector2.Distance(transform.position, target1.position) < 0.1f)

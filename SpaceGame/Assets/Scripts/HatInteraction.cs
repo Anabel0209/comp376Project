@@ -20,13 +20,13 @@ public class HatInteraction : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hasInteracted) return; // Prevent multiple interactions
+        if (hasInteracted) return; 
         hasInteracted = true;
 
         DialogueManager.instance.StartDialogue(
-         new string[0], // No NPC lines
-         0.05f,         // Text speed
-         new string[] { "This must be Turnip's hat!", "I should get this back to him." }, // Player's line
+         new string[0], 
+         0.05f,         
+         new string[] { "This must be Turnip's hat!", "I should get this back to him." }, 
          "Turnip hat");
     
 
@@ -40,27 +40,26 @@ public class HatInteraction : MonoBehaviour
 
     private IEnumerator HandleHatInteraction()
     {
-        // Wait for dialogue to finish
+        
         while (DialogueManager.instance.IsInputLocked() || DialogueManager.instance.IsDialogueActive())
         {
             yield return null;
         }
 
-        // Hide the hat
+      
         if (hat != null) hat.SetActive(false);
 
-        // Disable current NPCs and objects
+      
         if (turnip != null) turnip.SetActive(false);
         if (mayor != null) mayor.SetActive(false);
         if (piggy != null) piggy.SetActive(false);
 
-        // Enable new NPCs and objects
+ 
         if (newTurnip != null) newTurnip.SetActive(true);
         if (newMayor != null) newMayor.SetActive(true);
         if (newPiggy != null) newPiggy.SetActive(true);
         if (newHat != null) newHat.SetActive(true);
 
-        // Unlock Planet 2 in the teleporter
         teleporter teleportScript = FindObjectOfType<teleporter>();
         if (teleportScript != null)
         {

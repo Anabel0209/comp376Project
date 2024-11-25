@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Speed of the enemy's movement
-    public float moveDistance = 3f; // Distance the enemy moves left and right
-    public float bounceForce = 5f; // Force applied to the player when they defeat an enemy
-    public float knockbackForce = 5f; // Force applied to the player when hit by an enemy
-    public float knockbackDuration = 0.5f; // Duration of knockback effect
-    public AudioSource deathSound; // AudioSource for the death sound
+    public float moveSpeed = 2f; 
+    public float moveDistance = 3f; 
+    public float bounceForce = 5f; 
+    public float knockbackForce = 5f;
+    public float knockbackDuration = 0.5f; 
+    public AudioSource deathSound; 
 
 
     private Vector2 startingPosition;
@@ -23,8 +23,8 @@ public class Enemy : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
         }
-        rb.gravityScale = 1; // Set a gravity scale (adjust as needed)
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent the enemy from rotating
+        rb.gravityScale = 1; 
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation; 
 
         if (deathSound == null)
         {
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        // Move the enemy left and right within the specified range
+       
         if (movingRight)
         {
             transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
@@ -68,21 +68,20 @@ public class Enemy : MonoBehaviour
 
             if (playerRb != null && collision.contacts[0].normal.y < -0.5f)
             {
-                // Player jumps on top of the enemy
+              
                 playerRb.velocity = new Vector2(playerRb.velocity.x, bounceForce);
                 PlayDeathSound();
                 Destroy(gameObject);
             }
             else if (playerMovement != null && playerHealth != null && playerMovement.canMove)
             {
-                // Player collides with the enemy from the side or bottom
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
                 playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
-                // Reduce player health
+              
                 playerHealth.SendMessage("TakeDamage", 1);
 
-                // Disable player movement temporarily
+               
                 StartCoroutine(DisablePlayerMovementTemporarily(playerMovement));
             }
         }
@@ -104,17 +103,15 @@ public class Enemy : MonoBehaviour
     {
         if (deathSound != null)
         {
-            // Create a temporary GameObject to play the sound
+            
             GameObject tempAudio = new GameObject("TempAudio");
             AudioSource tempAudioSource = tempAudio.AddComponent<AudioSource>();
 
-            // Copy the settings from the original AudioSource
             tempAudioSource.clip = deathSound.clip;
             tempAudioSource.volume = deathSound.volume;
             tempAudioSource.pitch = deathSound.pitch;
             tempAudioSource.loop = false;
 
-            // Play the sound and destroy the temporary GameObject after it finishes
             tempAudioSource.Play();
             Destroy(tempAudio, deathSound.clip.length);
         }

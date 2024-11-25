@@ -30,7 +30,6 @@ public class elevator : MonoBehaviour
     private bool isMoving = true;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         //initialize the limits of the movement
@@ -43,7 +42,7 @@ public class elevator : MonoBehaviour
         StartCoroutine(waitBeforeStarting());
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(isMoving)

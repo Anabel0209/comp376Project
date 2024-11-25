@@ -1,20 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic; // Required for Queue<T>
+using System.Collections.Generic;
 
 
 public class PresidentDialogueManager : MonoBehaviour
 {
-    public static PresidentDialogueManager instance; // Singleton for President's dialogue
+    public static PresidentDialogueManager instance; 
     public TextMeshProUGUI npcTextComponent;
     public TextMeshProUGUI playerTextComponent;
     public GameObject dialoguePanel;
     public GameObject playerPanel;
     public TextMeshProUGUI npcNameTextComponent;
 
-    public AudioSource npcAudioSource;  // Audio source for NPC dialogue
-    public AudioSource playerAudioSource;  // Audio source for Player dialogue
+    public AudioSource npcAudioSource;
+    public AudioSource playerAudioSource;  
 
     private Queue<string> playerLinesQueue;
     private bool isTyping = false;
@@ -55,7 +55,7 @@ public class PresidentDialogueManager : MonoBehaviour
 
         if (isTyping)
         {
-            StopAllCoroutines(); // Stop any ongoing coroutines to prevent overlap
+            StopAllCoroutines(); 
             isTyping = false;
         }
 
@@ -77,14 +77,14 @@ public class PresidentDialogueManager : MonoBehaviour
 
     private IEnumerator TypeLines(string[] lines, float textSpeed)
     {
-        isTyping = true; // Set typing flag to true
+        isTyping = true; 
 
         npcTextComponent.text = string.Empty;
 
         foreach (string line in lines)
         {
-            npcTextComponent.text = string.Empty; // Clear the text for the new line
-                                                  // Play NPC audio
+            npcTextComponent.text = string.Empty; 
+                                                  
             if (npcAudioSource != null && !npcAudioSource.isPlaying)
             {
                 npcAudioSource.Play();
@@ -96,11 +96,11 @@ public class PresidentDialogueManager : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed);
             }
 
-            // Wait for user input before proceeding to the next line
+            
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
 
-        isTyping = false; // Reset typing flag
+        isTyping = false;
         DisplayPlayerLines();
     }
 
@@ -119,7 +119,7 @@ public class PresidentDialogueManager : MonoBehaviour
 
     private IEnumerator TypePlayerLines()
     {
-        isTyping = true; // Set typing flag
+        isTyping = true; 
         playerPanel.SetActive(true);
         playerTextComponent.text = string.Empty;
 
@@ -128,7 +128,7 @@ public class PresidentDialogueManager : MonoBehaviour
             string line = playerLinesQueue.Dequeue();
             playerTextComponent.text = string.Empty;
 
-            // Play Player audio
+         
             if (playerAudioSource != null && !playerAudioSource.isPlaying)
             {
                 playerAudioSource.Play();
@@ -140,11 +140,11 @@ public class PresidentDialogueManager : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
 
-            // Wait for user input to proceed to the next line
+           
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
 
-        isTyping = false; // Reset typing flag
+        isTyping = false; 
         playerPanel.SetActive(false);
         EndDialogue();
     }

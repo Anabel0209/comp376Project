@@ -9,24 +9,24 @@ public class AudioManager : MonoBehaviour
 
     private cameraController camController;
 
-    private bool isFinalAudioActive = false; // To track whether the final audio is active
+    private bool isFinalAudioActive = false; 
 
     private void Start()
     {
-        // Assuming cameraController script is on the same GameObject as the main camera
+        
         camController = Camera.main.GetComponent<cameraController>();
 
-        // Start with initial planet audio
+       
         PlayAudioForPlanet();
     }
 
     private void Update()
     {
-        if (!isFinalAudioActive) // Only handle regular switching if final audio isn't active
+        if (!isFinalAudioActive) 
         {
             PlayAudioForPlanet();
         }
-        else if (camController.planetnb == 0) // Ensure final audio continues playing on the main planet
+        else if (camController.planetnb == 0) 
         {
             if (!mainPlanetFinalAudio.isPlaying)
             {
@@ -67,9 +67,9 @@ public class AudioManager : MonoBehaviour
 
     public void ActivateFinalAudio()
     {
-        isFinalAudioActive = true; // Mark final audio as active
+        isFinalAudioActive = true; 
 
-        if (camController.planetnb == 0) // Only activate final audio if on the main planet
+        if (camController.planetnb == 0) 
         {
             StopAllPlanetAudio();
             mainPlanetFinalAudio.Play();
@@ -79,9 +79,9 @@ public class AudioManager : MonoBehaviour
 
     public void DeactivateFinalAudio()
     {
-        isFinalAudioActive = false; // Reset the final audio flag
+        isFinalAudioActive = false; 
         StopAllPlanetAudio();
-        PlayAudioForPlanet(); // Resume normal audio logic
+        PlayAudioForPlanet(); 
         Debug.Log("Final audio deactivated. Resuming normal audio logic.");
     }
 
