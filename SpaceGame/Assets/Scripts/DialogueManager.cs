@@ -76,9 +76,6 @@ public class DialogueManager : MonoBehaviour
             playerMovement.DisableMovement();
         }
 
-        // Play the NPC-specific sound
-        PlayNpcSound(npcAudioSource);
-
 
         // Skip NPC lines for "Turnip hat" and play only player lines
         if (npcName == "Turnip hat")
@@ -98,7 +95,7 @@ public class DialogueManager : MonoBehaviour
 
         // Regular dialogue behavior for other NPCs
         npcNameTextComponent.text = npcName;
-        typingCoroutine = StartCoroutine(TypeLines(npcLines, textSpeed));
+        typingCoroutine = StartCoroutine(TypeLines(npcLines, textSpeed, npcAudioSource));
 
         if (playerLines != null)
         {
@@ -123,7 +120,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    IEnumerator TypeLines(string[] lines, float textSpeed)
+    IEnumerator TypeLines(string[] lines, float textSpeed, AudioSource npcAudioSource)
     {
 
         if (gameObject.name == "Turnip hat")
@@ -138,6 +135,9 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string line in lines)
         {
+                // Play the NPC-specific sound
+        PlayNpcSound(npcAudioSource);
+
             if (isTyping) yield break; // Prevent overlapping typing
 
             isTyping = true; // Set typing flag

@@ -69,7 +69,7 @@ public class ItemCollectionManager : MonoBehaviour
             DialogueManager.instance.StartDialogue(
              new string[0], // No NPC lines
              0.05f,         // Text speed
-             new string[] { "What is that, somethingis is happening" }, // Player's line
+             new string[] { "What was that?" }, // Player's line
              "Turnip hat");
 
             //enable the modifications on the main planet

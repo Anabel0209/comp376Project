@@ -11,17 +11,27 @@ public class Boss : MonoBehaviour
     public GameObject projectilePrefab; // Projectile prefab
     public float projectileSpeed = 10f; // Speed of the projectile
     public float shootInterval = 2.3f; // Time between shots
-
+    public GameObject cage;
 
     public AudioSource takeDamageSound; // Sound when boss takes damage
     public AudioSource deathSound; // Sound when boss dies
     public AudioSource shootSound; // Sound when boss shoots a projectile
-
+    public AudioSource breathing; // Sound when the player is in range
 
     private Vector3 initialPosition;
     private bool movingRight = true;
     private Animator animator;
     private Rigidbody2D rb;
+
+    // Boss area bounds
+    private Vector2 bossAreaMin = new Vector2(205, -35); // Minimum bounds of the boss area
+    private Vector2 bossAreaMax = new Vector2(241, -25); // Maximum bounds of the boss area
+
+    private bool isDead = false;
+
+    private bool isBreathingPlaying = false;
+
+    
 
     void Start()
     {
@@ -29,23 +39,22 @@ public class Boss : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        // Test manual instantiation
-        Debug.Log("Testing projectile instantiation...");
-        if (projectilePrefab != null)
-        {
-            GameObject testProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Debug.Log("Projectile manually instantiated: " + testProjectile.name);
-        }
-        else
-        {
-            Debug.LogError("Projectile Prefab is not assigned!");
-        }
-
         // Start shooting projectiles
+     
         StartCoroutine(ShootProjectile());
     }
 
     void Update()
+    {
+        if (!isDead)
+        {
+            HandleMovement();
+            CheckPlayerInBounds();
+        }
+        
+    }
+
+    private void HandleMovement()
     {
         // Handle left and right movement
         if (movingRight)
@@ -62,36 +71,60 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private void CheckPlayerInBounds()
+    {
+        if (player != null)
+        {
+            Vector2 playerPosition = player.position;
+
+            // Check if the player is within the boss area bounds
+            if (playerPosition.x >= bossAreaMin.x && playerPosition.x <= bossAreaMax.x &&
+                playerPosition.y >= bossAreaMin.y && playerPosition.y <= bossAreaMax.y)
+            {
+                if (!isBreathingPlaying)
+                {
+                    if (breathing != null)
+                    {
+                        breathing.Play();
+                        isBreathingPlaying = true;
+                    }
+                }
+            }
+            else
+            {
+                if (isBreathingPlaying)
+                {
+                    if (breathing != null)
+                    {
+                        breathing.Stop();
+                        isBreathingPlaying = false;
+                    }
+                }
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            // Get the bounds of the boss's collider
             Collider2D bossCollider = GetComponent<Collider2D>();
             Vector2 contactPoint = collision.GetContact(0).point;
-            float topThreshold = bossCollider.bounds.max.y - 0.1f; // Adjust to fine-tune the "top hit" area
+            float topThreshold = bossCollider.bounds.max.y - 0.1f;
 
-            // Check if the player hit the top of the boss
             if (contactPoint.y > topThreshold)
             {
-                Debug.Log("Player hit the top of the boss. Dealing damage to the boss.");
-                TakeDamage(); // Damage the boss
-
-                // Calculate knockback direction based on player's position relative to the boss
+                TakeDamage();
                 Vector2 knockbackDirection = (collision.transform.position.x < transform.position.x) ? Vector2.left : Vector2.right;
-                knockbackDirection += Vector2.up; // Add an upward component for a diagonal knockback
-                knockbackDirection.Normalize(); // Normalize to ensure consistent strength
-
-                KnockbackPlayer(collision.collider, knockbackDirection); // Apply knockback
+                knockbackDirection += Vector2.up;
+                knockbackDirection.Normalize();
+                KnockbackPlayer(collision.collider, knockbackDirection);
             }
             else
             {
-                Debug.Log("Player hit the side or bottom of the boss. Damaging the player.");
-                DealDamageToPlayer(collision.collider); // Damage the player
-
-                // Determine knockback direction (left or right) based on player's position
+                DealDamageToPlayer(collision.collider);
                 Vector2 knockbackDirection = (collision.transform.position.x < transform.position.x) ? Vector2.left : Vector2.right;
-                KnockbackPlayer(collision.collider, knockbackDirection); // Apply knockback
+                KnockbackPlayer(collision.collider, knockbackDirection);
             }
         }
     }
@@ -101,20 +134,22 @@ public class Boss : MonoBehaviour
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
-            playerRb.velocity = Vector2.zero; // Reset current velocity
-            float strongKnockbackForce = knockbackForce * 2f; // Increase knockback force
+            playerRb.velocity = Vector2.zero;
+            float strongKnockbackForce = knockbackForce * 1.5f;
             playerRb.AddForce(direction * strongKnockbackForce, ForceMode2D.Impulse);
-            Debug.Log($"Player knocked back with force: {direction * strongKnockbackForce}");
         }
     }
-
-
-
-
 
     private void TakeDamage()
     {
         health--;
+
+        if (animator != null)
+        {
+            // Set the TakeDamage trigger
+            animator.SetTrigger("TakeDamage");
+            Debug.Log("TakeDamage trigger activated");
+        }
 
         if (takeDamageSound != null)
         {
@@ -127,15 +162,52 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
 
+    private void Die() { 
+
+        if (isDead) return;
+
+        isDead = true;
+
+        
         if (deathSound != null)
         {
             deathSound.Play();
         }
 
-        // Handle boss death (e.g., play animation, destroy object)
+        if (animator != null)
+        {
+            animator.Play("BossDeath"); // Replace "BossDeath" with the exact name of your animation state
+            Debug.Log("Forcing BossDeath animation");
+        }
+
+
+        StopMovement();
+
+        
+        Destroy(cage);
+
+        StartCoroutine(WaitForDeathAnimation());
+    }
+
+    private void StopMovement()
+{
+    // Stop the movement logic
+    movingRight = false; // Prevent movement logic from running
+    rb.velocity = Vector2.zero; // Stop any existing velocity
+
+    // Disable the Rigidbody2D if needed
+    if (rb != null)
+    {
+        rb.simulated = false; // Stops all physics interactions
+    }
+}
+
+
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 
@@ -144,70 +216,51 @@ public class Boss : MonoBehaviour
         HealthManagement playerHealth = player.GetComponent<HealthManagement>();
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(1); // Use your `HealthManagement` script's `TakeDamage` method
+            playerHealth.TakeDamage(1);
         }
     }
-
-  
-
 
     private IEnumerator ShootProjectile()
-{
-    Debug.Log("ShootProjectile coroutine started.");
-
-    while (true)
     {
-        yield return new WaitForSeconds(shootInterval);
-
-        // Play shoot animation
-        if (animator != null)
+        while (!isDead)
         {
-            Debug.Log("Playing shoot animation.");
-            animator.SetTrigger("ShootTrigger");
-        }
+            yield return new WaitForSeconds(shootInterval);
 
-        // Instantiate the projectile
-        if (projectilePrefab != null)
-        {
-            Debug.Log("Attempting to instantiate projectile...");
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Debug.Log("Projectile instantiated successfully: " + projectile.name);
-
-
-            // Ignore collision between boss and projectile
-            Collider2D projectileCollider = projectile.GetComponent<Collider2D>();
-            Collider2D bossCollider = GetComponent<Collider2D>();
-
-            // Prevent immediate collision with the boss
-            if (projectileCollider != null && bossCollider != null)
+            if (animator != null)
             {
-                Physics2D.IgnoreCollision(projectileCollider, bossCollider);
+                animator.SetTrigger("ShootTrigger");
             }
 
-            // Apply velocity to the projectile
-            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-            if (projectileRb != null && player != null)
+            if (projectilePrefab != null && !isDead)
             {
-                Vector2 direction = (player.position - transform.position).normalized;
-                projectileRb.velocity = direction * projectileSpeed;
-                Debug.Log("Projectile velocity set: " + projectileRb.velocity);
+                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-                if (shootSound != null)
+                Collider2D projectileCollider = projectile.GetComponent<Collider2D>();
+                Collider2D bossCollider = GetComponent<Collider2D>();
+
+                if (projectileCollider != null && bossCollider != null)
                 {
-                    shootSound.Play();
+                    Physics2D.IgnoreCollision(projectileCollider, bossCollider);
                 }
 
+                Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+                if (projectileRb != null && player != null)
+                {
+                    Vector2 direction = (player.position - transform.position).normalized;
+                    projectileRb.velocity = direction * projectileSpeed;
+
+                    // Play shoot sound only if the player is within bounds
+                    Vector2 playerPosition = player.position;
+                    if (playerPosition.x >= bossAreaMin.x && playerPosition.x <= bossAreaMax.x &&
+                        playerPosition.y >= bossAreaMin.y && playerPosition.y <= bossAreaMax.y)
+                    {
+                        if (shootSound != null)
+                        {
+                            shootSound.Play();
+                        }
+                    }
                 }
-            else
-            {
-                Debug.LogError("Projectile Rigidbody2D or Player Transform is missing!");
             }
-        }
-        else
-        {
-            Debug.LogError("Projectile Prefab is not assigned!");
         }
     }
-}
-
 }

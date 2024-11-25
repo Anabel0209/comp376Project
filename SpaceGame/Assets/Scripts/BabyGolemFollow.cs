@@ -23,6 +23,7 @@ public class BabyGolemFollow : MonoBehaviour
     private Vector3 currentOffset;
     private bool hasInteracted = false;
     private float distanceFromMama;
+    public AudioSource baby;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,8 @@ public class BabyGolemFollow : MonoBehaviour
     {
         if (hasInteracted) return; // Prevent multiple interactions
         hasInteracted = true;
+
+        baby.Play();
 
         //player dialogue when finding baby golem
         DialogueManager.instance.StartDialogue(

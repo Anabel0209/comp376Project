@@ -35,6 +35,24 @@ public class Dialogue : MonoBehaviour
 
     private void OnMouseDown()
     {
+
+        if (gameObject.name == "Mayor_fix")
+        {
+            GameObject mayor = GameObject.Find("Mayor_hide"); // Find the GameObject named "Mayor"
+            if (mayor != null) // Ensure the object exists
+            {
+                mayor.SetActive(false); // Disable the GameObject named "Mayor"
+            }
+        }
+
+        if (gameObject.name == "Mayor_end") 
+        {
+            GameObject gem = GameObject.Find("gem_end");
+            gem.SetActive(true);
+        }
+        
+           
+
         if (DialogueManager.instance == null || DialogueManager.instance.IsInputLocked()) return;
 
         if (Time.time - lastInputTime < inputCooldown) return;
@@ -71,7 +89,7 @@ public class Dialogue : MonoBehaviour
         if (yellowTurnipImage != null) papaImage.SetActive(false);
 
         // Show the specific image for the NPC clicked
-        if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor (1)" && mayorImage != null)
+        if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor_end" && mayorImage != null || gameObject.name == "Mayor_fix" && mayorImage != null || gameObject.name == "Mayor_hide" && mayorImage != null)
         {
             mayorImage.SetActive(true);
         }

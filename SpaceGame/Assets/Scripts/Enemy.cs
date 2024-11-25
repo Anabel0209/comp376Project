@@ -103,8 +103,21 @@ public class Enemy : MonoBehaviour
     {
         if (deathSound != null)
         {
-            deathSound.Play(); // Play the death sound
+            // Create a temporary GameObject to play the sound
+            GameObject tempAudio = new GameObject("TempAudio");
+            AudioSource tempAudioSource = tempAudio.AddComponent<AudioSource>();
+
+            // Copy the settings from the original AudioSource
+            tempAudioSource.clip = deathSound.clip;
+            tempAudioSource.volume = deathSound.volume;
+            tempAudioSource.pitch = deathSound.pitch;
+            tempAudioSource.loop = false;
+
+            // Play the sound and destroy the temporary GameObject after it finishes
+            tempAudioSource.Play();
+            Destroy(tempAudio, deathSound.clip.length);
         }
     }
+
 
 }
