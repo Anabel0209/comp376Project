@@ -443,7 +443,7 @@ MonoBehaviour:
   closeButton: {fileID: 1792960507}
   fadeDuration: 2
   scrollSpeed: 85
-  scrollEndY: 1310
+  scrollEndY: 1390
 --- !u!4 &346658417
 Transform:
   m_ObjectHideFlags: 0
@@ -2098,8 +2098,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000020027, y: -307.943}
-  m_SizeDelta: {x: 1060.9257, y: 577.779}
+  m_AnchoredPosition: {x: 0.000016689, y: -319}
+  m_SizeDelta: {x: 1072.1666, y: 600.2613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401269146
 MonoBehaviour:

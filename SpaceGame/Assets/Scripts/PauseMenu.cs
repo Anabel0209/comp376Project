@@ -7,6 +7,10 @@ public class PauseMenu : MonoBehaviour
     public Button pauseButton;           // Reference to the Pause button
     public Button resumeButton;          // Reference to the Resume button
 
+    public Button helpButton;            // Reference to the Help button
+    public GameObject helpPanel;         // Reference to the Help Panel
+    public Button closeHelpButton;       // Reference to the Close Help button
+
     private cameraController cameraControllerScript; // Reference to the cameraController script
 
     private bool isPaused = false;
@@ -25,8 +29,13 @@ public class PauseMenu : MonoBehaviour
         if (pauseButton != null) pauseButton.onClick.AddListener(TogglePause);
         if (resumeButton != null) resumeButton.onClick.AddListener(ResumeGame);
 
+        if (helpButton != null) helpButton.onClick.AddListener(OpenHelpPanel);
+        if (closeHelpButton != null) closeHelpButton.onClick.AddListener(CloseHelpPanel);
+
+
         // Ensure the pause menu is hidden initially
         if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (helpPanel != null) helpPanel.SetActive(false);
 
         // Update the pause button visibility at the start
         UpdatePauseButtonVisibility();
@@ -73,5 +82,19 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         if (pauseMenu != null) pauseMenu.SetActive(false);
         Time.timeScale = 1f; // Resume the game
+    }
+
+    private void OpenHelpPanel()
+    {
+        // Show the help panel and hide the pause menu
+        if (helpPanel != null) helpPanel.SetActive(true);
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+    }
+
+    private void CloseHelpPanel()
+    {
+        // Hide the help panel and return to the pause menu
+        if (helpPanel != null) helpPanel.SetActive(false);
+        if (pauseMenu != null) pauseMenu.SetActive(true);
     }
 }

@@ -110,7 +110,25 @@ public class HealthManagement : MonoBehaviour
             TriggerDeath();
         }
 
+        // Restore health on planet transition
+        int newPlanet = (int)myCamera.GetComponent<cameraController>().planetnb;
+        if (newPlanet != currentPlanet)
+        {
+            currentPlanet = newPlanet;
+            Debug.Log("Planet transition detected. Restoring health...");
+            RestoreHealthOnTravel();
+        }
+
     }
+
+    // New method to restore health on planet transitions
+    private void RestoreHealthOnTravel()
+    {
+        GainHealth(maxHealth); // Restore health to maximum
+        Debug.Log("Health restored to maximum on planet transition.");
+    }
+
+
     //method to call when the player takes damage
     public void TakeDamage(int damage)
     {

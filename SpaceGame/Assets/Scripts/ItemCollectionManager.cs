@@ -18,16 +18,46 @@ public class ItemCollectionManager : MonoBehaviour
     public int totalNbGem;
     public GameObject endGameGrid;
     public GameObject endGameDecoration;
+    
     public AudioSource allCoinsAlarm;
     public AudioSource rumble;
     public CameraShake cameraShake;
     private bool hasInteracted = false;
     private bool endGameSequencePlayed = false;
- 
+
+
+    private AudioManager audioManager;
+
+    private cameraController camController; // Reference to check the current planet
+
+    public GameObject arrow; // Reference to the arrow GameObject
+    public GameObject spaceship; // Reference to the spaceship GameObject
+
+
+
+
+    private void Start()
+    {
+        // Find AudioManager in the scene
+        audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager script is missing in the scene!");
+        }
+
+        // Start the arrow flashing effect
+        if (arrow != null)
+        {
+            StartCoroutine(FlashArrow());
+        }
+
+    }
 
 
     private void Update()
     {
+        
+
         inGameImageOfItem.GetComponent<Image>().sprite = itemToCollect;
         if (shouldCollectItem)
         {
@@ -66,6 +96,7 @@ public class ItemCollectionManager : MonoBehaviour
             if (hasInteracted) return; // Prevent multiple interactions
             hasInteracted = true;
 
+            
             DialogueManager.instance.StartDialogue(
              new string[0], // No NPC lines
              0.05f,         // Text speed
@@ -76,8 +107,56 @@ public class ItemCollectionManager : MonoBehaviour
             endGameGrid.SetActive(true);
             endGameDecoration.SetActive(true);
 
+            // Trigger audio manager to switch to final main planet audio
+            if (audioManager != null)
+            {
+                audioManager.ActivateFinalAudio();
+            }
+
+            // Hide arrow and spaceship
+            HideArrowAndSpaceship();
+
+            // Strictly ensure `endGamePanel` never opens during gem collection
+            //if (DialogueManager.instance != null && DialogueManager.instance.endGamePanel != null)
+            //{
+            //  if (DialogueManager.instance.endGamePanel.activeSelf)
+            // {
+            //     Debug.LogError("Gem collection attempted to trigger End-Game Panel. Forcing closure.");
+            //     DialogueManager.instance.endGamePanel.SetActive(false); // Force close
+            // }
+            //}
         }
     }
+
+
+    private void HideArrowAndSpaceship()
+    {
+        if (arrow != null)
+        {
+            arrow.SetActive(false);
+        }
+
+        if (spaceship != null)
+        {
+            spaceship.SetActive(false);
+        }
+
+        Debug.Log("Arrow and spaceship hidden at end game.");
+    }
+
+    private IEnumerator FlashArrow()
+    {
+        while (!endGameSequencePlayed) // Flash until end game is reached
+        {
+            if (arrow != null)
+            {
+                arrow.SetActive(!arrow.activeSelf); // Toggle visibility
+            }
+            yield return new WaitForSeconds(0.5f); // Adjust flash speed as needed
+        }
+    }
+
+
     public void DecrementCount(int amountToDecrement)
     {
         if (count >= amountToDecrement)

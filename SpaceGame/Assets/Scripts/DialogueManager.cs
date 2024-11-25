@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class DialogueManager : MonoBehaviour
     private NPCExclamationMark currentNpcExclamation;
 
 
+   // public GameObject endGamePanel; // Reference to the end-game panel
+    //public Button endGameResumeButton; // Resume button on the end-game panel
+    //public Button endGameQuitButton; // Quit button on the end-game panel
+   // public GameObject mayorEndGame;
+
+
     public AudioSource playerSound; 
 
     public PlayerMovement playerMovement; // Reference to PlayerMovement script
@@ -28,8 +35,8 @@ public class DialogueManager : MonoBehaviour
     public event System.Action OnDialogueEnd;
     private bool isInputLocked = false;
 
- 
 
+    private bool endGamePanelAllowed = false;
 
 
     void Awake()
@@ -47,10 +54,16 @@ public class DialogueManager : MonoBehaviour
         // Ensure panels are hidden at the start
         dialoguePanel.SetActive(false);
         playerPanel.SetActive(false);
+       // if (endGamePanel != null) endGamePanel.SetActive(false);
+
+        // Set up button listeners
+        //if (endGameResumeButton != null) endGameResumeButton.onClick.AddListener(ResumeGame);
+        //if (endGameQuitButton != null) endGameQuitButton.onClick.AddListener(QuitGame);
     }
 
     public void StartDialogue(string[] npcLines, float textSpeed, string[] playerLines = null, string npcName = "", AudioSource npcAudioSource = null)
     {
+        Debug.Log($"StartDialogue called. NPC Name: {npcName}");
         if (isDialogueActive || IsInputLocked()) return; // Prevent restarting dialogue
 
         LockInput();
@@ -200,6 +213,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        Debug.Log("EndDialogue called.");
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -226,7 +240,59 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         UnlockInput();
         OnDialogueEnd?.Invoke();
+
+        // Check if this is the mayorEndGame
+        //if (mayorEndGame != null && mayorEndGame.activeInHierarchy)
+        //{
+        //    Debug.Log("Dialogue with mayorEndGame complete. Opening End-Game Panel.");
+        //    ShowEndGamePanel();
+        //}
+        //else
+        //{
+        //    Debug.Log("Dialogue with non-mayor NPC complete. No panel will open.");
+        //}
+
     }
+
+    //private void ShowEndGamePanel()
+    //{
+       // Debug.Log("ShowEndGamePanel called.");
+       // if (!mayorEndGame.activeInHierarchy)
+       // {
+       //     Debug.LogError("ShowEndGamePanel() called incorrectly. Preventing activation.");
+        //    return;
+       //}
+
+        //if (endGamePanel != null)
+       // {
+        //    Debug.Log("Displaying End-Game Panel.");
+        //    endGamePanel.SetActive(true);
+        //    Time.timeScale = 0f; // Pause the game
+        //}
+    //}
+
+    //private void ResumeGame()
+    //{
+     //   if (endGamePanel != null) endGamePanel.SetActive(false);
+    //    Time.timeScale = 1f; // Resume the game
+    //    endGamePanelAllowed = false;
+    //}
+
+    //private void QuitGame()
+   // {
+    //    Debug.Log("Quitting game...");
+
+        // This will quit the application when running outside of the Unity Editor
+   //     Application.Quit();
+
+        // This ensures you can see it working in the Unity Editor
+//#if UNITY_EDITOR
+//    UnityEditor.EditorApplication.isPlaying = false;
+//#endif
+  //  }
+
+
+
 
     private void LockInput()
     {
