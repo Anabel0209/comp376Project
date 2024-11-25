@@ -14,6 +14,7 @@ public class BabyGolemFollow : MonoBehaviour
     public GameObject newMayor;
     public GameObject yellowTurnip;
     public GameObject newYellowTurnip;
+    public GameObject darkTurnip;
 
     private Vector3 offsetOnThePlayerLookingRight = new Vector3(-1, 1, 0);
     private Vector3 offsetOnThePlayerLookingLeft = new Vector3(1, 1, 0);
@@ -75,7 +76,7 @@ public class BabyGolemFollow : MonoBehaviour
         DialogueManager.instance.StartDialogue(
          new string[0], // No NPC lines
          0.05f,         // Text speed
-         new string[] { "This must be baby Golem!", "I will bring him back to his parents." }, // Player's line
+         new string[] { "Baby Golem!", "Let's get you home." }, // Player's line
          "Turnip hat");
 
         isAttached = true;
@@ -91,6 +92,7 @@ public class BabyGolemFollow : MonoBehaviour
         if(newMayor != null) newMayor.SetActive(true);
         if(yellowTurnip != null) yellowTurnip.SetActive(false);
         if(newYellowTurnip != null) newYellowTurnip.SetActive(true);
+        if (darkTurnip != null) darkTurnip.SetActive(false);
 
     }
 }

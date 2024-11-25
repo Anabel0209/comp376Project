@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour
     public string[] playerLines; // New field for player lines
     public AudioSource npcAudioSource; // New field for NPC-specific sound
     public GameObject gem; // Drag "gem_end" into this field in the Inspector
+    public BoxCollider2D billboardCollider;
 
 
     private float lastInputTime = 0f;
@@ -50,6 +51,11 @@ public class Dialogue : MonoBehaviour
         if (gameObject.name == "Mayor_end" && gem != null)
         {
             gem.SetActive(true);
+        }
+
+        if (gameObject.name == "Mayor_endGame")
+        {
+            EnableBillboardCollider();
         }
 
         if (gameObject.name == "YellowTurnip")
@@ -92,14 +98,14 @@ public class Dialogue : MonoBehaviour
         if (pigImage != null) pigImage.SetActive(false);
         if (mamaImage != null) mamaImage.SetActive(false);
         if (papaImage != null) papaImage.SetActive(false);
-        if (yellowTurnipImage != null) papaImage.SetActive(false);
+        if (yellowTurnipImage != null) yellowTurnipImage.SetActive(false);
 
         // Show the specific image for the NPC clicked
-        if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor_end" && mayorImage != null || gameObject.name == "Mayor_fix" && mayorImage != null || gameObject.name == "Mayor_hide" && mayorImage != null)
+        if (gameObject.name == "Mayor" && mayorImage != null || gameObject.name == "Mayor_end" && mayorImage != null || gameObject.name == "Mayor_fix" && mayorImage != null || gameObject.name == "Mayor_hide" && mayorImage != null || gameObject.name == "Mayor_endGame" && mayorImage != null)
         {
             mayorImage.SetActive(true);
         }
-        else if (gameObject.name == "YellowTurnip" && yellowTurnipImage != null || gameObject.name == "YellowTurnip (1)" && yellowTurnipImage != null)
+        else if (gameObject.name == "YellowTurnip" && yellowTurnipImage != null || gameObject.name == "YellowTurnip (1)" && yellowTurnipImage != null || gameObject.name == "YellowTurnip (2)" && yellowTurnipImage != null)
         {
             yellowTurnipImage.SetActive(true);
         }
@@ -161,6 +167,20 @@ public class Dialogue : MonoBehaviour
         else
         {
             npcName = "Unknown NPC"; // Fallback name
+        }
+
+      
+    }
+
+    private void EnableBillboardCollider()
+    {
+        if (billboardCollider != null)
+        {
+            billboardCollider.enabled = true;
+        }
+        else
+        {
+            Debug.LogWarning("Billboard BoxCollider2D is not assigned.");
         }
     }
 }
