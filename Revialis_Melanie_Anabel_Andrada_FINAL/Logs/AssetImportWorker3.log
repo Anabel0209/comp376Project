@@ -1,0 +1,811 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.46f1 (8e9b8558c41a) revision 9345925'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Professional' Language: 'en' Physical Memory: 32509 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/Mela/Desktop/Revialis_Melanie_Anabel_Andrada_FINAL
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+51267
+Successfully changed project path to: C:/Users/Mela/Desktop/Revialis_Melanie_Anabel_Andrada_FINAL
+C:/Users/Mela/Desktop/Revialis_Melanie_Anabel_Andrada_FINAL
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [4184]  Target information:
+
+Player connection [4184]  * "[IP] 192.168.2.17 [Port] 0 [Flags] 2 [Guid] 2288886287 [EditorId] 2288886287 [Version] 1048832 [Id] WindowsEditor(7,MELA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [4184] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [4184] Host joined alternative multi-casting on [225.0.0.222:34997]...
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+Refreshing native plugins compatible for Editor in 5.11 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.46f1 (8e9b8558c41a)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Mela/Desktop/Revialis_Melanie_Anabel_Andrada_FINAL/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 Ti SUPER (ID=0x2705)
+    Vendor:   NVIDIA
+    VRAM:     16063 MB
+    Driver:   32.0.15.6094
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56708
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003106 seconds.
+- Loaded All Assemblies, in  0.179 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.136 seconds
+Domain Reload Profiling: 315ms
+	BeginReloadAssembly (53ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (18ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (74ms)
+		LoadAssemblies (52ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (73ms)
+			TypeCache.Refresh (72ms)
+				TypeCache.ScanAssembly (65ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (136ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (113ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (79ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.383 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.434 seconds
+Domain Reload Profiling: 816ms
+	BeginReloadAssembly (73ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (10ms)
+	RebuildCommonClasses (17ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (21ms)
+	LoadAllAssembliesAndSetupDomain (264ms)
+		LoadAssemblies (181ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (125ms)
+			TypeCache.Refresh (102ms)
+				TypeCache.ScanAssembly (92ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (434ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (346ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (45ms)
+			ProcessInitializeOnLoadAttributes (250ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 2.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6218 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (347.5 KB). Loaded Objects now: 6693.
+Memory consumption went from 236.1 MB to 235.8 MB.
+Total: 2.281600 ms (FindLiveObjects: 0.245500 ms CreateObjectMapping: 0.084000 ms MarkObjects: 1.834900 ms  DeleteObjects: 0.116500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3289.488717 seconds.
+  path: Assets/Sprites/strange_planet_assets (1)/enemies/enemy_mockup_03.png
+  artifactKey: Guid(30ec955c3f2e6fb49859de66ef9a70ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/strange_planet_assets (1)/enemies/enemy_mockup_03.png using Guid(30ec955c3f2e6fb49859de66ef9a70ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'bf5030cf39637ff91d498e3c52f6799b') in 0.060613 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 6.226010 seconds.
+  path: Assets/Sprites/strange_planet_assets (1)/shoot_and_explosion/shoot_mockup_01.png
+  artifactKey: Guid(1af7516079056344594fbd7752972b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/strange_planet_assets (1)/shoot_and_explosion/shoot_mockup_01.png using Guid(1af7516079056344594fbd7752972b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'd41f1542bf756e90a6cb81aff28d2692') in 0.010521 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 24.895998 seconds.
+  path: Assets/Sprites/strange_planet_assets (1)/background/clouds.png
+  artifactKey: Guid(2cd9966af0a244f49a54a5e3d99fd403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/strange_planet_assets (1)/background/clouds.png using Guid(2cd9966af0a244f49a54a5e3d99fd403) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'ec3eeec1627d93ed0cf9d85d7856bf3d') in 0.030780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 19.283597 seconds.
+  path: Assets/Sprites/Friendly/idle.png
+  artifactKey: Guid(71ccc6b33c49e574982effc950e713e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/idle.png using Guid(71ccc6b33c49e574982effc950e713e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '073364ef3e966759f24c9a53ccd7bc0c') in 0.124543 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/Idle (34x28).png
+  artifactKey: Guid(3f7c0836782388c4fa2d3995b05e5785) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/Idle (34x28).png using Guid(3f7c0836782388c4fa2d3995b05e5785) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '033362831d43284dbf2f1449b73fd5d1') in 0.065446 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 1.225218 seconds.
+  path: Assets/Sprites/Friendly/03-Pig/Fall (34x28).png
+  artifactKey: Guid(5578c8f9045bf4246b7d0971e2c07d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/03-Pig/Fall (34x28).png using Guid(5578c8f9045bf4246b7d0971e2c07d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '8654b4eff7a237105f08135c8b9dcdee') in 0.012886 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/03-Pig/Run (34x28).png
+  artifactKey: Guid(b89b08d41dd251445a66defaf2b28b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/03-Pig/Run (34x28).png using Guid(b89b08d41dd251445a66defaf2b28b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '79b5a182a0b34d0e906d513a50a6486c') in 0.009771 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/03-Pig/Jump (34x28).png
+  artifactKey: Guid(400c31f98ef446643a0c412d36ac9c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/03-Pig/Jump (34x28).png using Guid(400c31f98ef446643a0c412d36ac9c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '65d8ba6c8cf2fe7d071b4fda99fef838') in 0.010104 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 19.300646 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/chara7.png
+  artifactKey: Guid(3513532ebd6b6f44e85c356a88c139a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/chara7.png using Guid(3513532ebd6b6f44e85c356a88c139a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'ad1369bba253d808c21bbc3d7a3307eb') in 0.013710 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/mount2.png
+  artifactKey: Guid(5fc825673aee49f44a2f2f0513619d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/mount2.png using Guid(5fc825673aee49f44a2f2f0513619d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'eb2b888843e8fdbafad759a0377bb1b6') in 0.012882 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/elemental.png
+  artifactKey: Guid(b084119d0a01a5642989851a4ff8e7bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/elemental.png using Guid(b084119d0a01a5642989851a4ff8e7bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '5215ee0ab6b45340a06a3b27bb6ffab3') in 0.011448 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_raptor1.png
+  artifactKey: Guid(94e3b8c1557db7642af3aa410bdd95e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_raptor1.png using Guid(94e3b8c1557db7642af3aa410bdd95e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '51a44cc48f0151febb1ba12b2942ad43') in 0.011618 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/horse1.png
+  artifactKey: Guid(131d831db9be77c49bf67f3da9de25b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/horse1.png using Guid(131d831db9be77c49bf67f3da9de25b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'e658485295eed347b318154e8c3352fe') in 0.011496 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_wolf1.png
+  artifactKey: Guid(5bf0ed045d3932f4fa2bd296794d6332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_wolf1.png using Guid(5bf0ed045d3932f4fa2bd296794d6332) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '29d73e377556b2cd4ac7dbacdf35f3ce') in 0.011255 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/mount1.png
+  artifactKey: Guid(2a6c16b78074dfb4cb52a86c0f89ca76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/mount1.png using Guid(2a6c16b78074dfb4cb52a86c0f89ca76) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'a53a165bce8ccf8b6aad4ab19c0c4693') in 0.012857 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/orc1.png
+  artifactKey: Guid(ba0c002cdc5b4a14a803723dd710057b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/orc1.png using Guid(ba0c002cdc5b4a14a803723dd710057b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'ddfdd22650757a0343a373bcea1ca33e') in 0.011250 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_golem1.png
+  artifactKey: Guid(b7def6b32cb870f4ab3da91ecd5929b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_golem1.png using Guid(b7def6b32cb870f4ab3da91ecd5929b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '486838e60aca9b93d7f1540601312c0a') in 0.012079 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster2.png
+  artifactKey: Guid(12295cda3500e914383f22842216b46f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster2.png using Guid(12295cda3500e914383f22842216b46f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3b7bec91940b10c2ed91747cd7c796a4') in 0.012247 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster4.png
+  artifactKey: Guid(573cc3160d4dd8b4dbdf6cf2652e6694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster4.png using Guid(573cc3160d4dd8b4dbdf6cf2652e6694) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'd8be7163e666a3a46d35c5c8c1dd8bc6') in 0.012462 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_lizardman1.png
+  artifactKey: Guid(826874ece0febb54dbf883a57db1ac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_lizardman1.png using Guid(826874ece0febb54dbf883a57db1ac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'f7e64718dc31f24b825d5358c29a3152') in 0.011933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_lich.png
+  artifactKey: Guid(593d01f9068d81548add8ae533a750ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/1x/monster_lich.png using Guid(593d01f9068d81548add8ae533a750ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '77fa1b857410839c1a2e5b0673d81e62') in 0.011450 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 37.910733 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird2.png
+  artifactKey: Guid(8da2083e08535d04488d710b6f337f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird2.png using Guid(8da2083e08535d04488d710b6f337f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '66539e28201531acbaf00168b6803bd5') in 0.012908 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_treant.png
+  artifactKey: Guid(d144f9f0e16e3ac4685949e15b6bf74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_treant.png using Guid(d144f9f0e16e3ac4685949e15b6bf74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'eb402ce9b2ffc038ac90847aae344888') in 0.011462 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/chara6.png
+  artifactKey: Guid(aa35b2af24e5ec0458c0b2f65498ef1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/chara6.png using Guid(aa35b2af24e5ec0458c0b2f65498ef1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '5ab7083b2245a33461cd11f69cd00b7c') in 0.113573 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 98
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_dknight1.png
+  artifactKey: Guid(21cc3e3117099724d9478a445c6dcb8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_dknight1.png using Guid(21cc3e3117099724d9478a445c6dcb8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'cbc465c140932e198437f7fce85e01ce') in 0.012411 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/chara7.png
+  artifactKey: Guid(7653651f9ef3d2b478c8bbda8b8aeea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/chara7.png using Guid(7653651f9ef3d2b478c8bbda8b8aeea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '953be0dc9239f03e1e0bca313dc25cf4') in 0.127655 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 98
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird3.png
+  artifactKey: Guid(63caba0fd2d5f9545b3116e0ecf1539f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird3.png using Guid(63caba0fd2d5f9545b3116e0ecf1539f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'd5ad96ab1c4a4702969b788e9da20326') in 0.012607 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_elk.png
+  artifactKey: Guid(d5df1fdc16ace9d44a886876854aca64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_elk.png using Guid(d5df1fdc16ace9d44a886876854aca64) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '9f47415dee10c53b4bea96cceea49ae6') in 0.014174 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/monster1.png
+  artifactKey: Guid(86ffd038d70caab4eb3c46309819bea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/monster1.png using Guid(86ffd038d70caab4eb3c46309819bea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '87fd55deacfbe6256ff0191e29f30783') in 0.012746 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor1.png
+  artifactKey: Guid(258f9580203eb944887d40dd9c9bd488) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor1.png using Guid(258f9580203eb944887d40dd9c9bd488) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '0cae786e665a0b4555cb61ae24cecdf5') in 0.009906 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/monster3.png
+  artifactKey: Guid(87ddf8b4041befa4f89243b0418bd94b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/monster3.png using Guid(87ddf8b4041befa4f89243b0418bd94b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '781d74e6582ff1f30500af6e7f942a22') in 0.012980 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/wizard.png
+  artifactKey: Guid(562030f3a8f08fe44a3c57e5e3f10656) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/wizard.png using Guid(562030f3a8f08fe44a3c57e5e3f10656) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'b1fe7e011490ae00f0924dccff1f801a') in 0.013045 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/emote6.png
+  artifactKey: Guid(8b816c41359c5c24b9c14a009fddefc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/emote6.png using Guid(8b816c41359c5c24b9c14a009fddefc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '72dc589530c39a9f82b80b13c5c7899b') in 0.013469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/horse1.png
+  artifactKey: Guid(76d88d72beab1eb4b96520528f928383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/horse1.png using Guid(76d88d72beab1eb4b96520528f928383) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'b4d6e22f4a8125ec0f00fb1af708506a') in 0.013116 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_golem2.png
+  artifactKey: Guid(12c47448c804ae348b1860e07a418690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_golem2.png using Guid(12c47448c804ae348b1860e07a418690) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '2ac402e3ccd6f25bd35fd0871cceadc0') in 0.012108 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 11.456604 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_bird3.png
+  artifactKey: Guid(390159bbb76b9b549805c94cd6250b5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_bird3.png using Guid(390159bbb76b9b549805c94cd6250b5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '10166d97797824dc54a731d1c93ac922') in 0.012504 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/horse1.png
+  artifactKey: Guid(2931cc167c5f8d849a456371f1b7eee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/horse1.png using Guid(2931cc167c5f8d849a456371f1b7eee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '2bba5e6f292cfc622d88085f3b50bbf8') in 0.012608 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_raptor2.png
+  artifactKey: Guid(d810e5a6e31066346be3231f0e502e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_raptor2.png using Guid(d810e5a6e31066346be3231f0e502e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '8da70b8292233a9e895511c1e393004e') in 0.011959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_dknight1.png
+  artifactKey: Guid(c54aa8b93fdfc2143aa61a8672e697f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_dknight1.png using Guid(c54aa8b93fdfc2143aa61a8672e697f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '655542b71958c99bdd2e4285bd8eb947') in 0.012082 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/monster4.png
+  artifactKey: Guid(282f9cdd654928f4987954f37e2a9505) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/monster4.png using Guid(282f9cdd654928f4987954f37e2a9505) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '442a2566cb75e8707b4d167cc6ecf34c') in 0.012430 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_wolf1.png
+  artifactKey: Guid(ff7cc75837e121144b734d48e0e3837f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_wolf1.png using Guid(ff7cc75837e121144b734d48e0e3837f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '43b7bf751f6f3a7720bf2e01fc23ea58') in 0.012139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_cacto.png
+  artifactKey: Guid(bb82a35af1158e74a858334675a5517b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_cacto.png using Guid(bb82a35af1158e74a858334675a5517b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '84560af44fa7c006f517eef9d423318d') in 0.010918 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_boar.png
+  artifactKey: Guid(057ca257f7308d040a640eac9d9aa5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_boar.png using Guid(057ca257f7308d040a640eac9d9aa5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'a43683be31162bac55cf8894d09e7131') in 0.011385 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/npc5.png
+  artifactKey: Guid(6b58f9c86fdb8ec4a9d554cebf0d22ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/npc5.png using Guid(6b58f9c86fdb8ec4a9d554cebf0d22ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3f1ae70ff9af55cd5c2c32ae87b0052d') in 0.012278 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/npc6.png
+  artifactKey: Guid(188bb48f0270e154caf1e19cf37e9639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/npc6.png using Guid(188bb48f0270e154caf1e19cf37e9639) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'facf71effd9ab31cb38e3a726c533b3f') in 0.012025 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/chara7.png
+  artifactKey: Guid(d1dfccad574431c40b81a6e402c97746) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/chara7.png using Guid(d1dfccad574431c40b81a6e402c97746) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'da23ce2cc4d94661ef0ad17ab6a2f7d9') in 0.011730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/emote7.png
+  artifactKey: Guid(9e70ff24a34149345988bce605579986) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/emote7.png using Guid(9e70ff24a34149345988bce605579986) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'fbd5af03b66d026b57a7658035ef2c9a') in 0.012470 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/elemental.png
+  artifactKey: Guid(900df1b9b1ed24e439ffb80996594a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/elemental.png using Guid(900df1b9b1ed24e439ffb80996594a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '5e0eeeadfeadfab6117cfaa4117e942c') in 0.012561 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_minotaur.png
+  artifactKey: Guid(1045ea1bf29f2664792018e2e5402586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/2x/$monster_minotaur.png using Guid(1045ea1bf29f2664792018e2e5402586) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '824eaf70e1d4c162ed30d54cc22279f0') in 0.010623 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 38.604219 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird2 1.png
+  artifactKey: Guid(b26d14926209fba4a8f6f744ebb1171b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird2 1.png using Guid(b26d14926209fba4a8f6f744ebb1171b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'd252525a76abb01f98dde35ed2cf01cd') in 0.027498 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_dknight1 1.png
+  artifactKey: Guid(9958f36f258d1114cad98d227c53ccac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_dknight1 1.png using Guid(9958f36f258d1114cad98d227c53ccac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '7f99be39c8a4a5d0512fefd08a0c457c') in 0.015950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor1 1.png
+  artifactKey: Guid(60807e6b529eae047831084048c900cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor1 1.png using Guid(60807e6b529eae047831084048c900cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'cd24b9747287d077c37ebc6b3f9bca11') in 0.019654 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_cacto 1.png
+  artifactKey: Guid(a54a6dfa6cc282e488296b37c5b6b917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_cacto 1.png using Guid(a54a6dfa6cc282e488296b37c5b6b917) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '4f49950b650f07b0d276b7bec177705b') in 0.025831 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor2 1.png
+  artifactKey: Guid(28c1dd552c8971046932b4c09807d2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_raptor2 1.png using Guid(28c1dd552c8971046932b4c09807d2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '9b4ff6ca23bc1534a22affed3a230a58') in 0.031030 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_boar 1.png
+  artifactKey: Guid(e3218b539dd61f34c86fe0b46f023963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_boar 1.png using Guid(e3218b539dd61f34c86fe0b46f023963) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '8f9ea2fe6d6ae7f832fedb2ad79595a2') in 0.029307 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/animation3 1.png
+  artifactKey: Guid(c8d5784e17020f246b050e0d4bd728a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/animation3 1.png using Guid(c8d5784e17020f246b050e0d4bd728a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'e07ec2b759a235ca434a2e111f9fb642') in 0.088943 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_elk 1.png
+  artifactKey: Guid(37bbededcf80f234b8befe651efe89cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_elk 1.png using Guid(37bbededcf80f234b8befe651efe89cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '16f21f4d791b1fd9e6c3033eba1a0d77') in 0.012366 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_golem1 1.png
+  artifactKey: Guid(2a4c4b4035e8a454aa420cd17b8fa093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_golem1 1.png using Guid(2a4c4b4035e8a454aa420cd17b8fa093) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '345bef765c1b6ddc300127fab5d4a1f5') in 0.011126 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 47.726224 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird1 3.png
+  artifactKey: Guid(805b50f13f1e69e46a9970bd426d8a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird1 3.png using Guid(805b50f13f1e69e46a9970bd426d8a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '638d1fcbfeb8bf68eab2b4a3f13f40fd') in 0.028617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird3 3.png
+  artifactKey: Guid(93e3e0dfe795bdc41a033f8964f334bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_bird3 3.png using Guid(93e3e0dfe795bdc41a033f8964f334bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '7f065af00147c13ad632813b0cae02e5') in 0.036672 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_boar 3.png
+  artifactKey: Guid(f8ff937ef303fa5428ca09e95512d081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_boar 3.png using Guid(f8ff937ef303fa5428ca09e95512d081) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '21656228a1b89c3cff99306d4347a46d') in 0.043648 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_cacto 2.png
+  artifactKey: Guid(eb53a89fd783b0549a4ceca5d905549c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Friendly/tf_monsters_assetpack/tf_monsters_assetpack/TimeFantasy_Monsters/RPGMAKERMV/characters/$monster_cacto 2.png using Guid(eb53a89fd783b0549a4ceca5d905549c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '05040b61413351c9b42f19b3661c19e3') in 0.025487 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
