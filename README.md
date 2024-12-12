@@ -1,0 +1,1 @@
+A platforming game developed in Unity, where the player controls Amalia, a character on a mission to restore her planet, Revialis. To achieve this, she must explore surrounding planets and assist their inhabitants, uncovering the secrets of Revialis along the way.
